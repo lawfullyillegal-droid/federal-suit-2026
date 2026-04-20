@@ -1,0 +1,19 @@
+formulas(assumptions).
+
+% FCRA 1681i(a)(1)(A): If a consumer disputes accuracy, the agency must reinvestigate.
+all x all item (Consumer(x) & DispatchesDispute(x, item) -> MustReinvestigate(lexisnexis, item)).
+
+% FCRA 1681i(a)(5)(A): If item is inaccurate or unverifiable, it must be deleted/modified.
+all item (FoundInaccurate(item) | Unverifiable(item) -> MustDeleteOrModify(lexisnexis, item)).
+
+% Facts from your audit:
+Consumer(travis_ryle).
+DispatchesDispute(travis_ryle, middle_initial_error).
+FoundInaccurate(middle_initial_error).
+
+end_of_list.
+
+formulas(goals).
+    % Goal: Prove LexisNexis is legally mandated to remove the error.
+    MustDeleteOrModify(lexisnexis, middle_initial_error).
+end_of_list.

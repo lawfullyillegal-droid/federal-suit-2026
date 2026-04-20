@@ -1,0 +1,142 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 20979 was started by u0_a494 on localhost,
+Sun Apr 19 23:09:32 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f /data/data/com.termux/files/home/proofs/fcra_dispute.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /data/data/com.termux/files/home/proofs/fcra_dispute.in
+
+
+formulas(assumptions).
+(all x all item (Consumer(x) & DispatchesDispute(x,item) -> MustReinvestigate(lexisnexis,item))).
+(all item (FoundInaccurate(item) | Unverifiable(item) -> MustDeleteOrModify(lexisnexis,item))).
+Consumer(travis_ryle).
+DispatchesDispute(travis_ryle,middle_initial_error).
+FoundInaccurate(middle_initial_error).
+end_of_list.
+
+formulas(goals).
+MustDeleteOrModify(lexisnexis,middle_initial_error).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x all item (Consumer(x) & DispatchesDispute(x,item) -> MustReinvestigate(lexisnexis,item))) # label(non_clause).  [assumption].
+2 (all item (FoundInaccurate(item) | Unverifiable(item) -> MustDeleteOrModify(lexisnexis,item))) # label(non_clause).  [assumption].
+3 MustDeleteOrModify(lexisnexis,middle_initial_error) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-Consumer(x) | -DispatchesDispute(x,y) | MustReinvestigate(lexisnexis,y).  [clausify(1)].
+-FoundInaccurate(x) | MustDeleteOrModify(lexisnexis,x).  [clausify(2)].
+-Unverifiable(x) | MustDeleteOrModify(lexisnexis,x).  [clausify(2)].
+Consumer(travis_ryle).  [assumption].
+DispatchesDispute(travis_ryle,middle_initial_error).  [assumption].
+FoundInaccurate(middle_initial_error).  [assumption].
+-MustDeleteOrModify(lexisnexis,middle_initial_error).  [deny(3)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating Consumer/1
+4 Consumer(travis_ryle).  [assumption].
+5 -Consumer(x) | -DispatchesDispute(x,y) | MustReinvestigate(lexisnexis,y).  [clausify(1)].
+Derived: -DispatchesDispute(travis_ryle,x) | MustReinvestigate(lexisnexis,x).  [resolve(4,a,5,a)].
+
+Eliminating FoundInaccurate/1
+6 FoundInaccurate(middle_initial_error).  [assumption].
+7 -FoundInaccurate(x) | MustDeleteOrModify(lexisnexis,x).  [clausify(2)].
+Derived: MustDeleteOrModify(lexisnexis,middle_initial_error).  [resolve(6,a,7,a)].
+
+Eliminating Unverifiable/1
+
+Eliminating DispatchesDispute/2
+8 -DispatchesDispute(travis_ryle,x) | MustReinvestigate(lexisnexis,x).  [resolve(4,a,5,a)].
+9 DispatchesDispute(travis_ryle,middle_initial_error).  [assumption].
+Derived: MustReinvestigate(lexisnexis,middle_initial_error).  [resolve(8,a,9,a)].
+
+Eliminating MustDeleteOrModify/2
+10 MustDeleteOrModify(lexisnexis,middle_initial_error).  [resolve(6,a,7,a)].
+11 -MustDeleteOrModify(lexisnexis,middle_initial_error).  [deny(3)].
+Derived: $F.  [resolve(10,a,11,a)].
+
+Eliminating MustReinvestigate/2
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 7.
+% Level of proof is 3.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+2 (all item (FoundInaccurate(item) | Unverifiable(item) -> MustDeleteOrModify(lexisnexis,item))) # label(non_clause).  [assumption].
+3 MustDeleteOrModify(lexisnexis,middle_initial_error) # label(non_clause) # label(goal).  [goal].
+6 FoundInaccurate(middle_initial_error).  [assumption].
+7 -FoundInaccurate(x) | MustDeleteOrModify(lexisnexis,x).  [clausify(2)].
+10 MustDeleteOrModify(lexisnexis,middle_initial_error).  [resolve(6,a,7,a)].
+11 -MustDeleteOrModify(lexisnexis,middle_initial_error).  [deny(3)].
+12 $F.  [resolve(10,a,11,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=11. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 20979 exit (max_proofs) Sun Apr 19 23:09:32 2026
