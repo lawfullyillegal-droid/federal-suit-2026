@@ -1,0 +1,28 @@
+============================== prooftrans ============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 22162 was started by u0_a494 on localhost,
+Sun Apr 19 20:39:43 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f my_problem.in".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 7.
+% Level of proof is 3.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+
+1 (all x (Human(x) -> Mortal(x))) # label(non_clause).  [assumption].
+2 Mortal(Socrates) # label(non_clause) # label(goal).  [goal].
+3 Human(Socrates).  [assumption].
+4 -Human(x) | Mortal(x).  [clausify(1)].
+5 Mortal(Socrates).  [resolve(3,a,4,a)].
+6 -Mortal(Socrates).  [deny(2)].
+7 $F.  [resolve(5,a,6,a)].
+
+============================== end of proof ==========================
