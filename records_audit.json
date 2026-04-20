@@ -1,0 +1,20 @@
+[
+  {
+    "entity": "David J. Hyun",
+    "affiliation": "Atkinson, Andelson, Loya, Ruud & Romo",
+    "role": "Attorney",
+    "status": "Unauthorized (Per Prover9 Logic)"
+  },
+  {
+    "entity": "Aztec Constructors",
+    "affiliation": "Disputed/Fraudulent Claim",
+    "correction_submitted": "OpenCorporates",
+    "legal_basis": "1099-A Abandonment (Jan 2022)",
+    "gleif_status": "NOT_FOUND"
+  },
+  {
+    "entity": "The Travis Private Bank Estate & Trust",
+    "instrument": "UCC U250155131317",
+    "status": "Perfected"
+  }
+]
