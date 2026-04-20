@@ -1,0 +1,16 @@
+RECORD CHALLENGE: DATA DIVERGENCE REPORT
+Date: April 20, 2026
+Subject Entity: Aztec Constructors
+Source of Dispute: 1099-A Abandonment (Jan 2022)
+
+FORENSIC AUDIT FINDINGS:
+1. LOGICAL STATUS: Prover9 Resolution (Process 9077) confirms "Unauthorized" 
+   standing for legal representatives claiming to act for this entity.
+2. GLOBAL STATUS: GLEIF API Sync (2026-04-20) returned "NOT_FOUND". 
+   No valid LEI exists for this entity.
+3. ESTATE STANDING: UCC Instrument U250155131317 is the only 
+   perfected interest on record.
+
+REQUEST:
+Update metadata for 'Aztec Constructors' to reflect DISPUTED/INACTIVE status.
+The current 'Active' reporting facilitates unauthorized legal claims.
