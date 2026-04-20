@@ -1,0 +1,22 @@
+formulas(assumptions).
+
+% Definition: A Recursive Entity is a Fund holding other Digital Entities (XBRL Tags).
+all x (RecursiveEntity(x) <-> (Fund(x) & all y (holds(x,y) -> DigitalEntity(y)))).
+
+% Tangible Facts from CIK 0000880195 (The XBRL you just pulled):
+Fund(fidelity_aberdeen_street_trust).
+DigitalEntity(xbrl_dei_2023).
+DigitalEntity(fmr_20241030).
+DigitalEntity(oef_2023).
+
+% Mapping the "Holdings" (The recursive structure of the file itself):
+holds(fidelity_aberdeen_street_trust, xbrl_dei_2023).
+holds(fidelity_aberdeen_street_trust, fmr_20241030).
+holds(fidelity_aberdeen_street_trust, oef_2023).
+
+end_of_list.
+
+formulas(goals).
+    % Prove the institutional fund is a Recursive Ledger Entry.
+    RecursiveEntity(fidelity_aberdeen_street_trust).
+end_of_list.
