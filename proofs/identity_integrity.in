@@ -1,0 +1,30 @@
+formulas(assumptions).
+
+% --- BIOLOGICAL CONSTANTS (FROM YOUR PHYSICAL RECORDS) ---
+% These represent the physical items in the photos you provided.
+BirthCertificate(cert_934).
+Physician(physician_934).
+SSN_Card(ssn_602_05_7209).
+
+% --- THE SUBJECT ---
+Subject(travis_steven_ryle).
+
+% --- THE MAPPING (THE "TANGIBLE" EVIDENCE) ---
+% Linking the specific objects to the human Travis.
+has_record(travis_steven_ryle, cert_934).
+certified_by(travis_steven_ryle, physician_934).
+holder_of(travis_steven_ryle, ssn_602_05_7209).
+
+% --- LOGICAL RULES ---
+% Rule 1: If someone has a birth cert and a physician certification, they are a Natural Human.
+all x (has_record(x, y) & certified_by(x, z) -> NaturalHuman(x)).
+
+% Rule 2: A Digital Entity (The Strawman) cannot be a Natural Human.
+all x (DigitalEntity(x) -> -NaturalHuman(x)).
+
+end_of_list.
+
+formulas(goals).
+    % Goal: Prove the Human Travis is NOT the Digital Entity.
+    -DigitalEntity(travis_steven_ryle).
+end_of_list.
