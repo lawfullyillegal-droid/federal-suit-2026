@@ -1,0 +1,151 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 18781 was started by u0_a494 on localhost,
+Wed Apr  1 18:25:49 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f mvd_logic.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file mvd_logic.in
+
+
+formulas(assumptions).
+(all x (mvd_hold(x) -> exists_debt(x))).
+(all x (is_indemnified(x) -> -exists_debt(x))).
+is_derivative(case_tr_2024_00143,fidelity_trust).
+(all x all y (is_derivative(x,y) & is_federal_trust(y) -> is_indemnified(x))).
+is_federal_trust(fidelity_trust).
+mvd_hold(case_tr_2024_00143).
+end_of_list.
+
+formulas(goals).
+$F.
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (mvd_hold(x) -> exists_debt(x))) # label(non_clause).  [assumption].
+2 (all x (is_indemnified(x) -> -exists_debt(x))) # label(non_clause).  [assumption].
+3 (all x all y (is_derivative(x,y) & is_federal_trust(y) -> is_indemnified(x))) # label(non_clause).  [assumption].
+4 $F # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-mvd_hold(x) | exists_debt(x).  [clausify(1)].
+-is_indemnified(x) | -exists_debt(x).  [clausify(2)].
+is_derivative(case_tr_2024_00143,fidelity_trust).  [assumption].
+-is_derivative(x,y) | -is_federal_trust(y) | is_indemnified(x).  [clausify(3)].
+is_federal_trust(fidelity_trust).  [assumption].
+mvd_hold(case_tr_2024_00143).  [assumption].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating mvd_hold/1
+5 mvd_hold(case_tr_2024_00143).  [assumption].
+6 -mvd_hold(x) | exists_debt(x).  [clausify(1)].
+Derived: exists_debt(case_tr_2024_00143).  [resolve(5,a,6,a)].
+
+Eliminating is_indemnified/1
+7 -is_derivative(x,y) | -is_federal_trust(y) | is_indemnified(x).  [clausify(3)].
+8 -is_indemnified(x) | -exists_debt(x).  [clausify(2)].
+Derived: -is_derivative(x,y) | -is_federal_trust(y) | -exists_debt(x).  [resolve(7,c,8,a)].
+
+Eliminating is_derivative/2
+9 -is_derivative(x,y) | -is_federal_trust(y) | -exists_debt(x).  [resolve(7,c,8,a)].
+10 is_derivative(case_tr_2024_00143,fidelity_trust).  [assumption].
+Derived: -is_federal_trust(fidelity_trust) | -exists_debt(case_tr_2024_00143).  [resolve(9,a,10,a)].
+
+Eliminating is_federal_trust/1
+11 -is_federal_trust(fidelity_trust) | -exists_debt(case_tr_2024_00143).  [resolve(9,a,10,a)].
+12 is_federal_trust(fidelity_trust).  [assumption].
+Derived: -exists_debt(case_tr_2024_00143).  [resolve(11,a,12,a)].
+
+Eliminating exists_debt/1
+13 -exists_debt(case_tr_2024_00143).  [resolve(11,a,12,a)].
+14 exists_debt(case_tr_2024_00143).  [resolve(5,a,6,a)].
+Derived: $F.  [resolve(13,a,14,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 14.
+% Level of proof is 5.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x (mvd_hold(x) -> exists_debt(x))) # label(non_clause).  [assumption].
+2 (all x (is_indemnified(x) -> -exists_debt(x))) # label(non_clause).  [assumption].
+3 (all x all y (is_derivative(x,y) & is_federal_trust(y) -> is_indemnified(x))) # label(non_clause).  [assumption].
+5 mvd_hold(case_tr_2024_00143).  [assumption].
+6 -mvd_hold(x) | exists_debt(x).  [clausify(1)].
+7 -is_derivative(x,y) | -is_federal_trust(y) | is_indemnified(x).  [clausify(3)].
+8 -is_indemnified(x) | -exists_debt(x).  [clausify(2)].
+9 -is_derivative(x,y) | -is_federal_trust(y) | -exists_debt(x).  [resolve(7,c,8,a)].
+10 is_derivative(case_tr_2024_00143,fidelity_trust).  [assumption].
+11 -is_federal_trust(fidelity_trust) | -exists_debt(case_tr_2024_00143).  [resolve(9,a,10,a)].
+12 is_federal_trust(fidelity_trust).  [assumption].
+13 -exists_debt(case_tr_2024_00143).  [resolve(11,a,12,a)].
+14 exists_debt(case_tr_2024_00143).  [resolve(5,a,6,a)].
+15 $F.  [resolve(13,a,14,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=11. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 18781 exit (max_proofs) Wed Apr  1 18:25:49 2026
