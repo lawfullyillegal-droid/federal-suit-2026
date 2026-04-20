@@ -10,7 +10,10 @@
     "affiliation": "Disputed/Fraudulent Claim",
     "correction_submitted": "OpenCorporates",
     "legal_basis": "1099-A Abandonment (Jan 2022)",
-    "gleif_status": "NOT_FOUND"
+    "gleif_status": "NOT_FOUND",
+    "challenge_status": "DRAFTED",
+    "challenge_date": "2026-04-20",
+    "evidence_ref": "GLEIF-NF-20260420"
   },
   {
     "entity": "The Travis Private Bank Estate & Trust",
