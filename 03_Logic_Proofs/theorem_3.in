@@ -1,0 +1,12 @@
+formulas(assumptions).
+all x (O(x) & D(x) -> U(x)).
+all x (-U(x) -> B(x)).
+all x (B(x) -> I(x)).
+O(ventura_2007).
+D(clerk_of_court).
+-U(ventura_2007).
+end_of_list.
+
+formulas(goals).
+I(ventura_2007).
+end_of_list.

@@ -1,0 +1,147 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 21171 was started by u0_a494 on localhost,
+Tue Apr 21 00:54:45 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f 03_Logic_Proofs/theorem_3.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file 03_Logic_Proofs/theorem_3.in
+
+
+formulas(assumptions).
+(all x (O(x) & D(x) -> U(x))).
+(all x (-U(x) -> B(x))).
+(all x (B(x) -> I(x))).
+O(ventura_2007).
+D(clerk_of_court).
+-U(ventura_2007).
+end_of_list.
+
+formulas(goals).
+I(ventura_2007).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (O(x) & D(x) -> U(x))) # label(non_clause).  [assumption].
+2 (all x (-U(x) -> B(x))) # label(non_clause).  [assumption].
+3 (all x (B(x) -> I(x))) # label(non_clause).  [assumption].
+4 I(ventura_2007) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-O(x) | -D(x) | U(x).  [clausify(1)].
+U(x) | B(x).  [clausify(2)].
+-B(x) | I(x).  [clausify(3)].
+O(x).  [assumption].
+D(clerk_of_court).  [assumption].
+-U(x).  [assumption].
+-I(c1).  [deny(4)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating O/1
+5 O(x).  [assumption].
+6 -O(x) | -D(x) | U(x).  [clausify(1)].
+Derived: -D(x) | U(x).  [resolve(5,a,6,a)].
+
+Eliminating U/1
+7 -U(x).  [assumption].
+8 U(x) | B(x).  [clausify(2)].
+Derived: B(x).  [resolve(7,a,8,a)].
+9 -D(x) | U(x).  [resolve(5,a,6,a)].
+Derived: -D(x).  [resolve(9,b,7,a)].
+
+Eliminating B/1
+10 B(x).  [resolve(7,a,8,a)].
+11 -B(x) | I(x).  [clausify(3)].
+Derived: I(x).  [resolve(10,a,11,a)].
+
+Eliminating D/1
+12 -D(x).  [resolve(9,b,7,a)].
+13 D(clerk_of_court).  [assumption].
+Derived: $F.  [resolve(12,a,13,a)].
+
+Eliminating I/1
+14 I(x).  [resolve(10,a,11,a)].
+15 -I(c1).  [deny(4)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 8.
+% Level of proof is 4.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x (O(x) & D(x) -> U(x))) # label(non_clause).  [assumption].
+5 O(x).  [assumption].
+6 -O(x) | -D(x) | U(x).  [clausify(1)].
+7 -U(x).  [assumption].
+9 -D(x) | U(x).  [resolve(5,a,6,a)].
+12 -D(x).  [resolve(9,b,7,a)].
+13 D(clerk_of_court).  [assumption].
+16 $F.  [resolve(12,a,13,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=12. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 21171 exit (max_proofs) Tue Apr 21 00:54:45 2026
