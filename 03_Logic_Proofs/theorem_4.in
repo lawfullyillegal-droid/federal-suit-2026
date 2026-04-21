@@ -1,0 +1,23 @@
+formulas(assumptions).
+
+% 1. Definition of Standing/Status
+% If an individual is classified as a Felon (F), they lose National Standing (S).
+all x (F(x) -> -S(x)).
+
+% 2. Definition of Identity Conversion
+% If an individual has no Standing (-S) and is under Administrative Control (A), 
+% Identity Conversion (C) has occurred.
+all x (-S(x) & A(x) -> C(x)).
+
+% 3. The 12-Year Fact Pattern
+% Travis was classified as F (Felon) due to the Ventura 2007 error.
+F(travis).
+% Travis was under Administrative Control (A) of the defendants.
+A(travis).
+
+end_of_list.
+
+formulas(goals).
+% Theorem 4: Identity Conversion (C) is the logical result of the Misclassification.
+C(travis).
+end_of_list.
