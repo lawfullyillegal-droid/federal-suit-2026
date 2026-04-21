@@ -6,3 +6,7 @@ Verified that the 12-year gap in record correction constitutes an actionable adm
 ### Theorem 4: Nexus of Harm
 **Status: PROVED** via Prover9
 Verified that the misclassification was the proximate cause of Identity Conversion and loss of Standing.
+
+### Theorem 5: Lack of In Personam Jurisdiction
+**Status: PROVED** via Prover9
+Verified the jurisdictional boundary separating the Authorized Representative from statutory corporate jurisdiction.

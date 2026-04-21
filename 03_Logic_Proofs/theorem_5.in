@@ -1,0 +1,27 @@
+formulas(assumptions).
+
+% 1. Axiom of Jurisdictional Boundaries
+% Statutory Jurisdiction (J) only applies to Corporate Persons (P).
+all x (J(x) -> P(x)).
+
+% 2. Definition of the Living Man / Authorized Representative
+% If an individual is the Authorized Representative (R) and 
+% the Entitlement Holder (E), they are a Living Man (M).
+all x (R(x) & E(x) -> M(x)).
+
+% 3. Mutually Exclusive Status
+% A Living Man (M) is NOT a Corporate Person (-P).
+all x (M(x) -> -P(x)).
+
+% 4. Facts of the Petitioner
+% Travis Ryle is the Authorized Representative (R).
+R(travis).
+% Travis Ryle is the Entitlement Holder (E).
+E(travis).
+
+end_of_list.
+
+formulas(goals).
+% Theorem 5: Therefore, Statutory Jurisdiction (J) does not apply to Travis.
+-J(travis).
+end_of_list.

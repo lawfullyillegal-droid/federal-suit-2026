@@ -1,0 +1,13 @@
+=========================================
+LOGIC VERIFICATION: THEOREM 5 (PROVED)
+=========================================
+SUBJECT: Lack of In Personam Jurisdiction
+STATUS: PROVED
+ENGINE: Prover9
+
+LOGIC STEPS:
+1. Statutory Jurisdiction (J) is bounded by Corporate Personhood (P).
+2. Authorized Representative (R) + Entitlement Holder (E) = Living Man (M).
+3. A Living Man (M) is not a Corporate Person (-P).
+4. VERIFIED: Therefore, Statutory Jurisdiction (J) does not apply to the Petitioner.
+=========================================
