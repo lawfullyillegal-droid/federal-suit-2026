@@ -1,0 +1,11 @@
+
+CERTIFICATE OF SERVICE
+CASE: RYLE v. LEXISNEXIS et al.
+DATE OF DISPATCH: 2026-04-22 00:17:03
+DEFENDANT: LexisNexis Risk Solutions
+METHOD: Certified Mail / Digital Repository Access
+
+I, Travis Steven Ryle, hereby certify that a copy of the Verified Audit and 
+Notice of Lawsuit was served upon the defendant via the method stated above, 
+including access to the deterministic proof logs archived at:
+https://github.com/lawfullyillegal-droid/federal-suit-2026
