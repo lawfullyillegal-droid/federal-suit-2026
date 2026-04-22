@@ -1,0 +1,8 @@
+formulas(assumptions).
+  man(Socrates).
+  all x (man(x) -> mortal(x)).
+end_of_list.
+
+formulas(goals).
+  mortal(Socrates).
+end_of_list.

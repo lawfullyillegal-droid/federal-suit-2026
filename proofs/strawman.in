@@ -1,0 +1,20 @@
+formulas(assumptions).
+
+% Definition of a Legal Person
+% A Legal Person is either a Natural Human OR a Juridistic Entity.
+all x (LegalPerson(x) <-> (Human(x) | Entity(x))).
+
+% The Strawman Theory:
+% The Strawman Theory claims that the "NAME" is a separate entity from the Human.
+all x (Strawman(x) -> (Entity(x) & -Human(x))).
+
+% Fact: The entity identified in the report.
+Entity(travis_ryle).
+Strawman(travis_ryle).
+
+end_of_list.
+
+formulas(goals).
+    % Goal: Prove that this specific entity is NOT the Human.
+    -Human(travis_ryle).
+end_of_list.

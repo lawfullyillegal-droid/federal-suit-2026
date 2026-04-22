@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawfully-Illegal</title>
+    <style>
+        body { background: #0a0a0a; color: #00ff41; font-family: 'Courier New', Courier, monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .container { text-align: center; border: 1px solid #00ff41; padding: 2rem; box-shadow: 0 0 15px #00ff41; }
+        h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 5px; }
+        p { color: #888; margin-top: 10px; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .links a { color: #00ff41; text-decoration: none; margin: 0 10px; border-bottom: 1px solid transparent; }
+        .links a:hover { border-bottom: 1px solid #00ff41; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lawfully-Illegal.com</h1>
+        <p>SYSTEM STATUS: <span style="color: #00ff41;">ONLINE</span></p>
+        <hr style="border: 0.5px solid #333;">
+        <div class="links">
+            <a href="#">PROJECTS</a>
+            <a href="#">SERVICES</a>
+            <a href="#">CONTACT</a>
+        </div>
+        <p class="blink">_</p>
+    </div>
+</body>
+</html>

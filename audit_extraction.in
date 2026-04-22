@@ -1,0 +1,18 @@
+formulas(sos).
+    % Assumptions
+    Trustee(Travis_Ryle).
+    Attorney(David_J_Hyun).
+    Assistant(Mary_M_Wong).
+    Instrument(UCC_U250155131317).
+    
+    % The logic: if no proof of agency is provided, the action is unauthorized
+    all x (Attorney(x) -> (Has_Agency_Proof(x) | Unauthorized_Action(x))).
+    
+    % The fact: No proof was provided by the July 24, 2025 deadline
+    -Has_Agency_Proof(David_J_Hyun).
+end_of_list.
+
+formulas(goals).
+    % The theorem to prove
+    Unauthorized_Action(David_J_Hyun).
+end_of_list.

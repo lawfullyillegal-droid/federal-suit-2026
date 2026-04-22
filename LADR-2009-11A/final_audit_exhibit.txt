@@ -1,0 +1,21 @@
+============================== DOMAIN SIZE 941 =======================
+
+mace4_sig_handler: condition 2
+============================== STATISTICS ============================
+
+For domain size 941.
+
+Current CPU time: 0.00 seconds (total CPU time: 425.33 seconds).
+Ground clauses: seen=906, kept=906.
+Selections=0, assignments=0, propagations=0, current_models=0.
+Rewrite_terms=0, rewrite_bools=0, indexes=0.
+Rules_from_neg_clauses=0, cross_offs=0.
+
+============================== end of statistics =====================
+
+User_CPU=425.33, System_CPU=30.42, Wall_clock=465.
+
+Exiting with failure.
+
+Process 8258 exit (mace_sigint) Sat Apr 18 11:24:34 2026
+The process finished Sat Apr 18 11:24:34 2026

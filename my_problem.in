@@ -1,0 +1,8 @@
+formulas(sos).
+  all x (Human(x) -> Mortal(x)).
+  Human(Socrates).
+end_of_list.
+
+formulas(goals).
+  Mortal(Socrates).
+end_of_list.

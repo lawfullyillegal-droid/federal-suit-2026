@@ -1,0 +1,16 @@
+formulas(assumptions).
+  Record(A, valid).
+  -Record(A, valid).
+end_of_list.
+
+formulas(goals).
+  Check(Contradiction).
+end_of_list.
+formulas(assumptions).
+  Record(A, valid).
+  -Record(A, valid).
+end_of_list.
+
+formulas(goals).
+  Check(Contradiction).
+end_of_list.

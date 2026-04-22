@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EnforceAI Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+<nav class="bg-gray-900 p-6 flex justify-between">
+<h1 class="text-2xl font-bold">EnforceAI</h1>
+<a href="/logout" class="text-red-400">Logout</a>
+</nav>
+<div class="max-w-2xl mx-auto p-8">
+<h2 class="text-3xl mb-8">Your Cases</h2>
+<form method="POST" action="/new_case" class="mb-10">
+<input name="title" placeholder="Case Title (e.g. My Trust Audit)" class="w-full p-4 bg-gray-800 rounded mb-4">
+<input name="statute" placeholder="Statute (e.g. 14th Amendment)" class="w-full p-4 bg-gray-800 rounded mb-6">
+<button type="submit" class="w-full bg-red-600 py-5 rounded-xl font-bold text-xl">GENERATE REMEDY</button>
+</form>
+<p class="text-center text-gray-400">Your saved cases will appear here.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Nmap 7.99 scan initiated Wed Apr 15 10:18:53 2026 as: /data/data/com.termux/files/usr/bin/nmap -sn -oN /data/data/com.termux/files/home/devices.txt 192.168.1.0/24
+Nmap scan report for 192.168.1.1
+Host is up (0.027s latency).
+Nmap scan report for 192.168.1.131
+Host is up (0.0027s latency).
+Nmap scan report for 192.168.1.137
+Host is up (0.0044s latency).
+Nmap scan report for 192.168.1.138
+Host is up (0.0097s latency).
+# Nmap done at Wed Apr 15 10:19:00 2026 -- 256 IP addresses (4 hosts up) scanned in 7.21 seconds

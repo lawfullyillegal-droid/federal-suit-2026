@@ -1,0 +1,162 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 12576 was started by u0_a494 on localhost,
+Sat Apr 18 11:49:32 2026
+The command was "/data/data/com.termux/files/home/LADR-2009-11A/bin/prover9 -f jurisdiction_status.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file jurisdiction_status.in
+
+
+formulas(assumptions).
+Naturalized_to_Family_Nation(Travis_Steven_Ryle).
+Pledged_Allegiance(Travis_Steven_Ryle,Ryle_Family_Nation).
+(all x (Naturalized_to_Family_Nation(x) -> National_Status(x))).
+(all x (National_Status(x) & Pledged_Allegiance(x,Ryle_Family_Nation) -> -US_Corporate_Citizen(x))).
+(all x (-US_Corporate_Citizen(x) -> Foreign_State_Jurisdiction(x))).
+(all x (Foreign_State_Jurisdiction(x) -> -Subject_to_Summary_Administrative_Court(x))).
+end_of_list.
+
+formulas(goals).
+-Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (Naturalized_to_Family_Nation(x) -> National_Status(x))) # label(non_clause).  [assumption].
+2 (all x (National_Status(x) & Pledged_Allegiance(x,Ryle_Family_Nation) -> -US_Corporate_Citizen(x))) # label(non_clause).  [assumption].
+3 (all x (-US_Corporate_Citizen(x) -> Foreign_State_Jurisdiction(x))) # label(non_clause).  [assumption].
+4 (all x (Foreign_State_Jurisdiction(x) -> -Subject_to_Summary_Administrative_Court(x))) # label(non_clause).  [assumption].
+5 -Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+Naturalized_to_Family_Nation(Travis_Steven_Ryle).  [assumption].
+Pledged_Allegiance(Travis_Steven_Ryle,Ryle_Family_Nation).  [assumption].
+-Naturalized_to_Family_Nation(x) | National_Status(x).  [clausify(1)].
+-National_Status(x) | -Pledged_Allegiance(x,Ryle_Family_Nation) | -US_Corporate_Citizen(x).  [clausify(2)].
+US_Corporate_Citizen(x) | Foreign_State_Jurisdiction(x).  [clausify(3)].
+-Foreign_State_Jurisdiction(x) | -Subject_to_Summary_Administrative_Court(x).  [clausify(4)].
+Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [deny(5)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating Naturalized_to_Family_Nation/1
+6 -Naturalized_to_Family_Nation(x) | National_Status(x).  [clausify(1)].
+7 Naturalized_to_Family_Nation(Travis_Steven_Ryle).  [assumption].
+Derived: National_Status(Travis_Steven_Ryle).  [resolve(6,a,7,a)].
+
+Eliminating Pledged_Allegiance/2
+8 -National_Status(x) | -Pledged_Allegiance(x,Ryle_Family_Nation) | -US_Corporate_Citizen(x).  [clausify(2)].
+9 Pledged_Allegiance(Travis_Steven_Ryle,Ryle_Family_Nation).  [assumption].
+Derived: -National_Status(Travis_Steven_Ryle) | -US_Corporate_Citizen(Travis_Steven_Ryle).  [resolve(8,b,9,a)].
+
+Eliminating US_Corporate_Citizen/1
+10 -National_Status(Travis_Steven_Ryle) | -US_Corporate_Citizen(Travis_Steven_Ryle).  [resolve(8,b,9,a)].
+11 US_Corporate_Citizen(x) | Foreign_State_Jurisdiction(x).  [clausify(3)].
+Derived: -National_Status(Travis_Steven_Ryle) | Foreign_State_Jurisdiction(Travis_Steven_Ryle).  [resolve(10,b,11,a)].
+
+Eliminating Foreign_State_Jurisdiction/1
+12 -National_Status(Travis_Steven_Ryle) | Foreign_State_Jurisdiction(Travis_Steven_Ryle).  [resolve(10,b,11,a)].
+13 -Foreign_State_Jurisdiction(x) | -Subject_to_Summary_Administrative_Court(x).  [clausify(4)].
+Derived: -National_Status(Travis_Steven_Ryle) | -Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [resolve(12,b,13,a)].
+
+Eliminating Subject_to_Summary_Administrative_Court/1
+14 -National_Status(Travis_Steven_Ryle) | -Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [resolve(12,b,13,a)].
+15 Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [deny(5)].
+Derived: -National_Status(Travis_Steven_Ryle).  [resolve(14,b,15,a)].
+
+Eliminating National_Status/1
+16 -National_Status(Travis_Steven_Ryle).  [resolve(14,b,15,a)].
+17 National_Status(Travis_Steven_Ryle).  [resolve(6,a,7,a)].
+Derived: $F.  [resolve(16,a,17,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 18.
+% Level of proof is 6.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x (Naturalized_to_Family_Nation(x) -> National_Status(x))) # label(non_clause).  [assumption].
+2 (all x (National_Status(x) & Pledged_Allegiance(x,Ryle_Family_Nation) -> -US_Corporate_Citizen(x))) # label(non_clause).  [assumption].
+3 (all x (-US_Corporate_Citizen(x) -> Foreign_State_Jurisdiction(x))) # label(non_clause).  [assumption].
+4 (all x (Foreign_State_Jurisdiction(x) -> -Subject_to_Summary_Administrative_Court(x))) # label(non_clause).  [assumption].
+5 -Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle) # label(non_clause) # label(goal).  [goal].
+6 -Naturalized_to_Family_Nation(x) | National_Status(x).  [clausify(1)].
+7 Naturalized_to_Family_Nation(Travis_Steven_Ryle).  [assumption].
+8 -National_Status(x) | -Pledged_Allegiance(x,Ryle_Family_Nation) | -US_Corporate_Citizen(x).  [clausify(2)].
+9 Pledged_Allegiance(Travis_Steven_Ryle,Ryle_Family_Nation).  [assumption].
+10 -National_Status(Travis_Steven_Ryle) | -US_Corporate_Citizen(Travis_Steven_Ryle).  [resolve(8,b,9,a)].
+11 US_Corporate_Citizen(x) | Foreign_State_Jurisdiction(x).  [clausify(3)].
+12 -National_Status(Travis_Steven_Ryle) | Foreign_State_Jurisdiction(Travis_Steven_Ryle).  [resolve(10,b,11,a)].
+13 -Foreign_State_Jurisdiction(x) | -Subject_to_Summary_Administrative_Court(x).  [clausify(4)].
+14 -National_Status(Travis_Steven_Ryle) | -Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [resolve(12,b,13,a)].
+15 Subject_to_Summary_Administrative_Court(Travis_Steven_Ryle).  [deny(5)].
+16 -National_Status(Travis_Steven_Ryle).  [resolve(14,b,15,a)].
+17 National_Status(Travis_Steven_Ryle).  [resolve(6,a,7,a)].
+18 $F.  [resolve(16,a,17,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=13. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 12576 exit (max_proofs) Sat Apr 18 11:49:32 2026

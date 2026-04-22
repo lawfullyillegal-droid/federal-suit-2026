@@ -1,0 +1,16 @@
+formulas(assumptions).
+  % General Rules of Liability
+  all x all y (Owner(x, y) & Activity(y, Felony) -> Responsible(x, y)).
+  all x all y (Responsible(x, y) & FailedToCure(x) -> InDefault(x)).
+  
+  % Specific Evidence from your Forensic Record
+  Owner(Connie, APN_306_23_133A).
+  Activity(APN_306_23_133A, Felony). % Based on A.R.S. 13-3101 firearm threats
+  
+  % The status of the 24-hour window
+  FailedToCure(Connie). % 24 hours have passed without remediation
+end_of_list.
+
+formulas(goals).
+  InDefault(Connie).
+end_of_list.

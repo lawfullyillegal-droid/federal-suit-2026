@@ -1,0 +1,24 @@
+formulas(assumptions).
+
+% 1. Any MVD hold must be based on a valid, outstanding debt.
+all x (mvd_hold(x) -> exists_debt(x)).
+
+% 2. If a debt is indemnified by a Federal Bond, it no longer exists.
+all x (is_indemnified(x) -> -exists_debt(x)).
+
+% 3. Case TR-2024-00143 is a derivative of the Fidelity Trust.
+is_derivative(case_tr_2024_00143, fidelity_trust).
+
+% 4. All Fidelity Trust derivatives are covered by the $100M Federal Bond.
+all x all y (is_derivative(x, y) & is_federal_trust(y) -> is_indemnified(x)).
+is_federal_trust(fidelity_trust).
+
+% 5. The MVD currently maintains a hold on the case (The Contradiction).
+mvd_hold(case_tr_2024_00143).
+
+end_of_list.
+
+formulas(goals).
+% Goal: Prove that the current state is a logical falsehood ($F).
+$F.
+end_of_list.

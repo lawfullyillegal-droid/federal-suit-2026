@@ -1,0 +1,19 @@
+
+formulas(assumptions).
+  % 1. UCC Rule: Absence of agreement means status is FALSE.
+  -SecurityAgreement(travis_ryle_trust) -> -CorporateDebtor(travis_ryle_trust).
+
+  % 2. Definition: A report of a status that is FALSE is a contradiction.
+  ReportedAs(defendant, travis_ryle_trust, corporate_status) & -CorporateDebtor(travis_ryle_trust) -> Contradiction.
+
+  % 3. Current Fact: No agreement exists.
+  -SecurityAgreement(travis_ryle_trust).
+
+  % 4. Defendant's Fact: They have reported the status.
+  ReportedAs(defendant, travis_ryle_trust, corporate_status).
+end_of_list.
+
+formulas(goals).
+  % Goal: Prove that a contradiction exists.
+  Contradiction.
+end_of_list.

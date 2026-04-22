@@ -1,0 +1,154 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 18801 was started by u0_a494 on localhost,
+Fri Apr 17 05:31:46 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f julie_behavioral_audit.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file julie_behavioral_audit.in
+
+
+formulas(assumptions).
+(all x (PioneerSpirit(x) -> ValuesAutonomy(x))).
+(all x (ValuesAutonomy(x) & ActsOnImpulse(x) -> PrioritizesSelf(x))).
+(all x (StablePartner(x) -> -PrioritizesSelf(x))).
+PioneerSpirit(Julie).
+ActsOnImpulse(Julie).
+Infidelity(Julie).
+(all x (Infidelity(x) -> -StablePartner(x))).
+end_of_list.
+
+formulas(goals).
+-StablePartner(Julie).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (PioneerSpirit(x) -> ValuesAutonomy(x))) # label(non_clause).  [assumption].
+2 (all x (ValuesAutonomy(x) & ActsOnImpulse(x) -> PrioritizesSelf(x))) # label(non_clause).  [assumption].
+3 (all x (StablePartner(x) -> -PrioritizesSelf(x))) # label(non_clause).  [assumption].
+4 (all x (Infidelity(x) -> -StablePartner(x))) # label(non_clause).  [assumption].
+5 -StablePartner(Julie) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-PioneerSpirit(x) | ValuesAutonomy(x).  [clausify(1)].
+-ValuesAutonomy(x) | -ActsOnImpulse(x) | PrioritizesSelf(x).  [clausify(2)].
+-StablePartner(x) | -PrioritizesSelf(x).  [clausify(3)].
+PioneerSpirit(Julie).  [assumption].
+ActsOnImpulse(Julie).  [assumption].
+Infidelity(Julie).  [assumption].
+-Infidelity(x) | -StablePartner(x).  [clausify(4)].
+StablePartner(Julie).  [deny(5)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating PioneerSpirit/1
+6 PioneerSpirit(Julie).  [assumption].
+7 -PioneerSpirit(x) | ValuesAutonomy(x).  [clausify(1)].
+Derived: ValuesAutonomy(Julie).  [resolve(6,a,7,a)].
+
+Eliminating ValuesAutonomy/1
+8 ValuesAutonomy(Julie).  [resolve(6,a,7,a)].
+9 -ValuesAutonomy(x) | -ActsOnImpulse(x) | PrioritizesSelf(x).  [clausify(2)].
+Derived: -ActsOnImpulse(Julie) | PrioritizesSelf(Julie).  [resolve(8,a,9,a)].
+
+Eliminating StablePartner/1
+10 StablePartner(Julie).  [deny(5)].
+11 -StablePartner(x) | -PrioritizesSelf(x).  [clausify(3)].
+12 -Infidelity(x) | -StablePartner(x).  [clausify(4)].
+Derived: -PrioritizesSelf(Julie).  [resolve(10,a,11,a)].
+Derived: -Infidelity(Julie).  [resolve(10,a,12,b)].
+
+Eliminating ActsOnImpulse/1
+13 -ActsOnImpulse(Julie) | PrioritizesSelf(Julie).  [resolve(8,a,9,a)].
+14 ActsOnImpulse(Julie).  [assumption].
+Derived: PrioritizesSelf(Julie).  [resolve(13,a,14,a)].
+
+Eliminating Infidelity/1
+15 -Infidelity(Julie).  [resolve(10,a,12,b)].
+16 Infidelity(Julie).  [assumption].
+Derived: $F.  [resolve(15,a,16,a)].
+
+Eliminating PrioritizesSelf/1
+17 PrioritizesSelf(Julie).  [resolve(13,a,14,a)].
+18 -PrioritizesSelf(Julie).  [resolve(10,a,11,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 7.
+% Level of proof is 3.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+4 (all x (Infidelity(x) -> -StablePartner(x))) # label(non_clause).  [assumption].
+5 -StablePartner(Julie) # label(non_clause) # label(goal).  [goal].
+10 StablePartner(Julie).  [deny(5)].
+12 -Infidelity(x) | -StablePartner(x).  [clausify(4)].
+15 -Infidelity(Julie).  [resolve(10,a,12,b)].
+16 Infidelity(Julie).  [assumption].
+19 $F.  [resolve(15,a,16,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=14. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 18801 exit (max_proofs) Fri Apr 17 05:31:46 2026

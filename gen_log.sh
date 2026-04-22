@@ -1,0 +1,5 @@
+echo "--- EVIDENCE LOG ENTRY ---"
+echo "TIMESTAMP: $(date)"
+echo "LOCATION: Golden Valley, AZ (Mohave County)"
+echo "REPO: github.com/Lawfullyillegaldroid"
+echo "--------------------------"

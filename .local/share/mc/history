@@ -1,0 +1,26 @@
+[input-ftp-proxy]
+0=gate
+
+[input-timeout]
+0=900
+
+[input-passwd]
+0=anonymous@
+
+[input-timo-vfs]
+0=60
+
+[inpmc.fm.menu.exec.parameter]
+0=
+
+[inpmc.fm.mkdir]
+0=tall nmap
+
+[inp:ftplink_cmd: FTP to machine ]
+0=
+
+[input2]
+0=/data/data/com.termux/files/home/
+
+[input-def]
+0=*

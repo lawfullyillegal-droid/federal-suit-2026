@@ -1,0 +1,8 @@
+--------- beginning of main
+04-04 04:17:00.606 12258 12258 D VRI[GUIConfigActivity]: visibilityChanged oldVisibility=true newVisibility=false
+04-04 04:17:00.616 12258 12281 D Surface : Surface::disconnect
+04-04 04:17:00.617 12258 12281 D BufferQueueProducer: [com.termux.gui/com.termux.gui.GUIConfigActivity#8350(BLAST Consumer)pid:12258](id:2fe200000001,api:1,p:12258,c:12258) disconnect: api 1
+04-04 04:17:03.795 12258 12258 D VRI[GUIConfigActivity]: visibilityChanged oldVisibility=true newVisibility=false
+04-04 04:17:03.805 12258 12281 D Surface : Surface::disconnect
+04-04 04:17:03.805 12258 12281 D BufferQueueProducer: [com.termux.gui/com.termux.gui.GUIConfigActivity#8385(BLAST Consumer)pid:12258](id:2fe200000002,api:1,p:12258,c:12258) disconnect: api 1
+04-04 04:17:03.807 12258 12281 D HWUI    : endAllActiveAnimators on 0xb400007421b56d60 (RippleDrawable) with handle 0xb4000074d1b59a40

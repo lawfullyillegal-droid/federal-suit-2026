@@ -1,0 +1,31 @@
+--------- beginning of main
+04-04 04:15:59.111 12258 12258 I com.termux.gui: Using CollectorTypeCMC GC.
+04-04 04:15:59.116 12258 12258 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+04-04 04:15:59.148 12258 12258 D nativeloader: Configuring clns-7 for other apk /data/app/~~CbQ12rOaSa_M8by8Vr61cA==/com.termux.gui--Pg1e5rowjDKnNN5BHuhHQ==/base.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~CbQ12rOaSa_M8by8Vr61cA==/com.termux.gui--Pg1e5rowjDKnNN5BHuhHQ==/lib/arm64:/data/app/~~CbQ12rOaSa_M8by8Vr61cA==/com.termux.gui--Pg1e5rowjDKnNN5BHuhHQ==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.termux.gui
+04-04 04:15:59.155 12258 12258 V GraphicsEnvironment: Currently set values for:
+04-04 04:15:59.155 12258 12258 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+04-04 04:15:59.155 12258 12258 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+04-04 04:15:59.155 12258 12258 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+04-04 04:15:59.155 12258 12258 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+04-04 04:15:59.258 12258 12258 I EngineFactory: Provider GmsCore_OpenSSL not available
+04-04 04:15:59.261 12258 12258 I Typeface: updateThemeFont new=sans-serif;old=sans-serif;new=sans-serif;old=
+04-04 04:15:59.278 12258 12258 D CompatChangeReporter: Compat change id reported: 210923482; UID 10485; state: ENABLED
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: QUALCOMM build                   : 0c393b63cf, I94e2bd5684
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Build Date                       : 05/02/25
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: EV031.36.08.33
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Local Branch                     : 
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.R1.11.00.00.816.269
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Remote Branch                    : NONE
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Reconstruct Branch               : NOTHING
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Build Config                     : S P 12.1.1 AArch64
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+04-04 04:15:59.355 12258 12281 I AdrenoGLES-0: Driver Version                   : 0615.98
+04-04 04:15:59.358 12258 12281 I AdrenoGLES-0: PFP: 0x01710181, ME: 0x00000000
+04-04 04:15:59.373 12258 12281 I HWUI    : setGrContext nullptr-->validptr
+04-04 04:16:01.783 12258 12258 W com.termux.gui: Unable to open libdolphin.so: dlopen failed: library "libdolphin.so" not found.
+04-04 04:16:04.847 12258 12258 D VRI[GUIConfigActivity]: visibilityChanged oldVisibility=true newVisibility=false
+04-04 04:16:04.859 12258 12281 D Surface : Surface::disconnect
+04-04 04:16:04.859 12258 12281 D BufferQueueProducer: [com.termux.gui/com.termux.gui.GUIConfigActivity#8326(BLAST Consumer)pid:12258](id:2fe200000000,api:1,p:12258,c:12258) disconnect: api 1
+04-04 04:16:04.859 12258 12281 D HWUI    : endAllActiveAnimators on 0xb400007421b56d60 (RippleDrawable) with handle 0xb4000074d1b80e30
+04-04 04:16:36.808 12258 12263 W com.termux.gui: userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+04-04 04:16:45.601 12258 12258 I AssistStructure: Flattened final assist data: 3744 bytes, containing 1 windows, 15 views

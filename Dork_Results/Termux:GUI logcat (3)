@@ -1,0 +1,17 @@
+--------- beginning of main
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: QUALCOMM build                   : 0c393b63cf, I94e2bd5684
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Build Date                       : 05/02/25
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: EV031.36.08.33
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Local Branch                     : 
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.R1.11.00.00.816.269
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Remote Branch                    : NONE
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Reconstruct Branch               : NOTHING
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Build Config                     : S P 12.1.1 AArch64
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+04-04 05:00:46.620 12258 12281 I AdrenoGLES-0: Driver Version                   : 0615.98
+04-04 05:00:46.630 12258 12281 I AdrenoGLES-0: PFP: 0x01710181, ME: 0x00000000
+04-04 05:00:46.656 12258 12281 I HWUI    : setGrContext nullptr-->validptr
+04-04 05:00:48.814 12258 12258 D VRI[GUIConfigActivity]: visibilityChanged oldVisibility=true newVisibility=false
+04-04 05:00:48.823 12258 12281 D Surface : Surface::disconnect
+04-04 05:00:48.823 12258 12281 D BufferQueueProducer: [com.termux.gui/com.termux.gui.GUIConfigActivity#11773(BLAST Consumer)pid:12258](id:2fe200000004,api:1,p:12258,c:12258) disconnect: api 1
+04-04 05:00:48.824 12258 12281 D HWUI    : endAllActiveAnimators on 0xb400007421b56d60 (RippleDrawable) with handle 0xb4000074d1b793f0

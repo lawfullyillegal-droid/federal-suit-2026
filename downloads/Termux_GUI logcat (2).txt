@@ -1,0 +1,23 @@
+--------- beginning of system
+08-14 03:02:17.748 23540 23540 D VRI[GUIConfigActivity]: update {(0,0)(fillxfill) sim={adjust=pan forwardNavigation} ty=BASE_APPLICATION wanim=0x1030300
+08-14 03:02:17.748 23540 23540 D VRI[GUIConfigActivity]:   fl=LAYOUT_IN_SCREEN LAYOUT_INSET_DECOR SPLIT_TOUCH HARDWARE_ACCELERATED DRAWS_SYSTEM_BAR_BACKGROUNDS
+08-14 03:02:17.748 23540 23540 D VRI[GUIConfigActivity]:   pfl=NO_MOVE_ANIMATION FORCE_DRAW_STATUS_BAR_BACKGROUND USE_BLAST FIT_INSETS_CONTROLLED
+08-14 03:02:17.748 23540 23540 D VRI[GUIConfigActivity]:   bhv=DEFAULT
+08-14 03:02:17.748 23540 23540 D VRI[GUIConfigActivity]:   fitSides=} by setLayoutParams
+--------- beginning of main
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: QUALCOMM build                   : 406382a20f, I986008d073
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Build Date                       : 01/05/24
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: EV031.36.08.28
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Local Branch                     : 
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.11.00.00.770.073
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Remote Branch                    : NONE
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Reconstruct Branch               : NOTHING
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Build Config                     : S P 12.1.1 AArch64
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+08-14 03:02:17.759 23540 23557 I AdrenoGLES-0: Driver Version                   : 0615.80
+08-14 03:02:17.767 23540 23557 I AdrenoGLES-0: PFP: 0x01710158, ME: 0x00000000
+08-14 03:02:17.789 23540 23557 I OpenGLRenderer: setGrContext nullptr-->validptr
+08-14 03:02:17.790 23540 23557 E OpenGLRenderer: Unable to match the desired swap behavior.
+08-14 03:02:21.348 23540 23557 D Surface : Surface::disconnect
+08-14 03:02:21.349 23540 23557 D BufferQueueProducer: [VRI[GUIConfigActivity]#2(BLAST Consumer)2](id:5bf400000002,api:1,p:23540,c:23540) disconnect: api 1
+08-14 03:02:28.246 23540 23557 E OpenGLRenderer: Unable to match the desired swap behavior.

@@ -1,0 +1,180 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 11944 was started by u0_a494 on localhost,
+Sat Apr 18 11:48:24 2026
+The command was "/data/data/com.termux/files/home/LADR-2009-11A/bin/prover9 -f count_2_conspiracy.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file count_2_conspiracy.in
+
+
+formulas(assumptions).
+Ecclesiastical(The_Travis_Ryle_Trust).
+Private(The_Travis_Ryle_Trust).
+(all x (Ecclesiastical(x) -> -Corporate_Fiction(x))).
+(all x (-Corporate_Fiction(x) -> -Subject_To_Administrative_Overlay(x))).
+Applied_As_Corporate_Debtor(Aztec_Constructors,The_Travis_Ryle_Trust).
+(all x all y (Applied_As_Corporate_Debtor(x,y) & Ecclesiastical(y) -> Identity_Conversion)).
+(all x (Identity_Conversion -> Section_1985_Violation)).
+end_of_list.
+
+formulas(goals).
+Section_1985_Violation.
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (Ecclesiastical(x) -> -Corporate_Fiction(x))) # label(non_clause).  [assumption].
+2 (all x (-Corporate_Fiction(x) -> -Subject_To_Administrative_Overlay(x))) # label(non_clause).  [assumption].
+3 (all x all y (Applied_As_Corporate_Debtor(x,y) & Ecclesiastical(y) -> Identity_Conversion)) # label(non_clause).  [assumption].
+4 (all x (Identity_Conversion -> Section_1985_Violation)) # label(non_clause).  [assumption].
+5 Section_1985_Violation # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+Ecclesiastical(The_Travis_Ryle_Trust).  [assumption].
+Private(The_Travis_Ryle_Trust).  [assumption].
+-Ecclesiastical(x) | -Corporate_Fiction(x).  [clausify(1)].
+Corporate_Fiction(x) | -Subject_To_Administrative_Overlay(x).  [clausify(2)].
+Applied_As_Corporate_Debtor(Aztec_Constructors,The_Travis_Ryle_Trust).  [assumption].
+-Applied_As_Corporate_Debtor(x,y) | -Ecclesiastical(y) | Identity_Conversion.  [clausify(3)].
+-Identity_Conversion | Section_1985_Violation.  [clausify(4)].
+-Section_1985_Violation.  [deny(5)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating Ecclesiastical/1
+6 -Ecclesiastical(x) | -Corporate_Fiction(x).  [clausify(1)].
+7 Ecclesiastical(The_Travis_Ryle_Trust).  [assumption].
+Derived: -Corporate_Fiction(The_Travis_Ryle_Trust).  [resolve(6,a,7,a)].
+8 -Applied_As_Corporate_Debtor(x,y) | -Ecclesiastical(y) | Identity_Conversion.  [clausify(3)].
+Derived: -Applied_As_Corporate_Debtor(x,The_Travis_Ryle_Trust) | Identity_Conversion.  [resolve(8,b,7,a)].
+
+Eliminating Private/1
+
+Eliminating Corporate_Fiction/1
+9 -Corporate_Fiction(The_Travis_Ryle_Trust).  [resolve(6,a,7,a)].
+10 Corporate_Fiction(x) | -Subject_To_Administrative_Overlay(x).  [clausify(2)].
+Derived: -Subject_To_Administrative_Overlay(The_Travis_Ryle_Trust).  [resolve(9,a,10,a)].
+
+Eliminating Applied_As_Corporate_Debtor/2
+11 -Applied_As_Corporate_Debtor(x,The_Travis_Ryle_Trust) | Identity_Conversion.  [resolve(8,b,7,a)].
+12 Applied_As_Corporate_Debtor(Aztec_Constructors,The_Travis_Ryle_Trust).  [assumption].
+Derived: Identity_Conversion.  [resolve(11,a,12,a)].
+
+Eliminating Subject_To_Administrative_Overlay/1
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ Identity_Conversion, Section_1985_Violation ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+kept:      13 -Identity_Conversion | Section_1985_Violation.  [clausify(4)].
+kept:      14 -Section_1985_Violation.  [deny(5)].
+kept:      15 Identity_Conversion.  [resolve(11,a,12,a)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+13 -Identity_Conversion | Section_1985_Violation.  [clausify(4)].
+14 -Section_1985_Violation.  [deny(5)].
+15 Identity_Conversion.  [resolve(11,a,12,a)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=2): 13 -Identity_Conversion | Section_1985_Violation.  [clausify(4)].
+
+given #2 (I,wt=1): 14 -Section_1985_Violation.  [deny(5)].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 12.
+% Level of proof is 4.
+% Maximum clause weight is 2.000.
+% Given clauses 2.
+
+3 (all x all y (Applied_As_Corporate_Debtor(x,y) & Ecclesiastical(y) -> Identity_Conversion)) # label(non_clause).  [assumption].
+4 (all x (Identity_Conversion -> Section_1985_Violation)) # label(non_clause).  [assumption].
+5 Section_1985_Violation # label(non_clause) # label(goal).  [goal].
+7 Ecclesiastical(The_Travis_Ryle_Trust).  [assumption].
+8 -Applied_As_Corporate_Debtor(x,y) | -Ecclesiastical(y) | Identity_Conversion.  [clausify(3)].
+11 -Applied_As_Corporate_Debtor(x,The_Travis_Ryle_Trust) | Identity_Conversion.  [resolve(8,b,7,a)].
+12 Applied_As_Corporate_Debtor(Aztec_Constructors,The_Travis_Ryle_Trust).  [assumption].
+13 -Identity_Conversion | Section_1985_Violation.  [clausify(4)].
+14 -Section_1985_Violation.  [deny(5)].
+15 Identity_Conversion.  [resolve(11,a,12,a)].
+16 -Identity_Conversion.  [resolve(14,a,13,b)].
+17 $F.  [resolve(16,a,15,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=2. Generated=4. Kept=4. proofs=1.
+Usable=2. Sos=1. Demods=0. Limbo=0, Disabled=12. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.04.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 11944 exit (max_proofs) Sat Apr 18 11:48:24 2026

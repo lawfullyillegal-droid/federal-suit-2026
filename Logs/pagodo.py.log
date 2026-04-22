@@ -1,0 +1,55 @@
+2026-03-31 01:07:31,614 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:07:31.614639
+2026-03-31 01:07:31,615 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov intitle:index.of ] using User-Agent 'Mozilla/5.0 (X11; U; Linux i686; ko-KR; rv:1.9.2.3) Gecko/20100423 Ubuntu/10.04 (lucid) Firefox/3.6.3' through proxy ''
+2026-03-31 01:07:32,227 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: intitle:index.of
+2026-03-31 01:07:32,227 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:07:32,227 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:07:32.227939
+2026-03-31 01:09:55,956 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:09:55.956174
+2026-03-31 01:09:55,956 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov intitle:index.of ] using User-Agent 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16' through proxy ''
+2026-03-31 01:09:56,518 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: intitle:index.of
+2026-03-31 01:09:56,518 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:09:56,518 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:09:56.518625
+2026-03-31 01:10:35,249 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:10:35.249836
+2026-03-31 01:10:35,250 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov intitle:index.of ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.1; ja; rv:1.9.2.4) Gecko/20100611 Firefox/3.6.4 GTB7.1' through proxy ''
+2026-03-31 01:10:36,370 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: intitle:index.of
+2026-03-31 01:10:36,370 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:10:36,370 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:10:36.370412
+2026-03-31 01:16:54,970 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:16:54.970529
+2026-03-31 01:16:54,970 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov intitle:index.of ] using User-Agent 'Mozilla/5.0 (X11; U; Linux i686; ru-RU; rv:1.9.1.2) Gecko/20090804 Firefox/3.5.2' through proxy 'socks5://127.0.0.1:9050'
+2026-03-31 01:17:02,055 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: intitle:index.of
+2026-03-31 01:17:02,055 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:17:02,055 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:17:02.055671
+2026-03-31 01:19:43,500 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:19:43.500872
+2026-03-31 01:19:43,501 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov filetype:pdf intext:confidential ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.0; pl; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16' through proxy 'socks5://127.0.0.1:9050'
+2026-03-31 01:19:49,087 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: filetype:pdf intext:confidential
+2026-03-31 01:19:49,087 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:19:49,087 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:19:49.087425
+2026-03-31 01:23:13,769 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:23:13.768996
+2026-03-31 01:23:13,769 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov filetype:pdf ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.0; he-IL) AppleWebKit/528.16 (KHTML, like Gecko) Version/4.0 Safari/528.16' through proxy 'socks5://127.0.0.1:9050'
+2026-03-31 01:23:17,875 [MainThread  ] [INFO] Results: 0 URLs found for Google dork: filetype:pdf
+2026-03-31 01:23:17,875 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:23:17,876 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:23:17.875987
+2026-03-31 01:25:07,927 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:25:07.926994
+2026-03-31 01:25:07,927 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:nasa.gov filetype:pdf ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-TW; rv:1.9.2.4) Gecko/20100611 Firefox/3.6.4 ( .NET CLR 3.5.30729)' through proxy 'socks5://127.0.0.1:9050'
+2026-03-31 01:25:07,931 [MainThread  ] [ERROR] Error with dork: filetype:pdf.  Exception SOCKSHTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("SOCKSHTTPSConnection(host='www.google.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-31 01:25:07,931 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:25:07,931 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:25:07.931675
+2026-03-31 01:25:12,010 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:25:12.010902
+2026-03-31 01:25:12,011 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:asrs.arc.nasa.gov filetype:pdf ] using User-Agent 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (KHTML, like Gecko) Ubuntu/10.10 Chromium/12.0.702.0 Chrome/12.0.702.0 Safari/534.24' through proxy 'socks5h://localhost:9050'
+2026-03-31 01:25:12,018 [MainThread  ] [ERROR] Error with dork: filetype:pdf.  Exception SOCKSHTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("SOCKSHTTPSConnection(host='www.google.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-31 01:25:12,018 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:25:12,018 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:25:12.018393
+2026-03-31 01:34:19,569 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:34:19.569705
+2026-03-31 01:34:19,570 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:fidelity.com filetype:pdf "registration" "ens legis" OR "legal entity" ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.1; ca; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 (.NET CLR 3.5.30729)' through proxy 'socks5h://localhost:9050'
+2026-03-31 01:34:19,577 [MainThread  ] [ERROR] Error with dork: filetype:pdf "registration" "ens legis" OR "legal entity".  Exception SOCKSHTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("SOCKSHTTPSConnection(host='www.google.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-31 01:34:19,577 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:34:19,577 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:34:19.577455
+2026-03-31 01:35:10,261 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:35:10.261061
+2026-03-31 01:35:10,261 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:sec.gov filetype:pdf FFNOX "Statement of Additional Information" registration ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.1; de; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 4.0.20506)' through proxy 'socks5h://localhost:9050'
+2026-03-31 01:35:10,266 [MainThread  ] [ERROR] Error with dork: filetype:pdf FFNOX "Statement of Additional Information" registration.  Exception SOCKSHTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("SOCKSHTTPSConnection(host='www.google.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-31 01:35:10,266 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:35:10,267 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:35:10.266992
+2026-03-31 01:35:56,728 [MainThread  ] [INFO] Initiation timestamp: 2026-03-31T01:35:56.728465
+2026-03-31 01:35:56,728 [MainThread  ] [INFO] Search ( 1 / 1 ) for Google dork [ site:sec.gov FFNOX "Form N-1A" "individual" OR "entity" ] using User-Agent 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4' through proxy 'socks5h://localhost:9050'
+2026-03-31 01:35:56,734 [MainThread  ] [ERROR] Error with dork: FFNOX "Form N-1A" "individual" OR "entity".  Exception SOCKSHTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("SOCKSHTTPSConnection(host='www.google.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-03-31 01:35:56,734 [MainThread  ] [INFO] Total URLs found for the 1 total dorks searched: 0
+2026-03-31 01:35:56,734 [MainThread  ] [INFO] Completion timestamp: 2026-03-31T01:35:56.734632

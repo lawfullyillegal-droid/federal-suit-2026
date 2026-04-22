@@ -1,0 +1,5 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+www.sec.gov	0	1	1776636060	31536000
+www.cs.unm.edu	0	1	1776533961	31536000

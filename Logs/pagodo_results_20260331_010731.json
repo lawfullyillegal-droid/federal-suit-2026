@@ -1,0 +1,10 @@
+{
+    "dorks": {
+        "intitle:index.of": {
+            "urls_size": 0,
+            "urls": []
+        }
+    },
+    "initiation_timestamp": "2026-03-31T01:07:31.614639",
+    "completion_timestamp": "2026-03-31T01:07:32.227939"
+}

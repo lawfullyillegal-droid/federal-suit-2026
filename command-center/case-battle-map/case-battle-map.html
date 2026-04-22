@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case Battle Map - Trial War Room OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+      --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+      --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+      --color-bg:#0b0d10;--color-surface:#11151b;--color-surface-2:#151a21;--color-surface-offset:#181e27;
+      --color-text:#f3f4f6;--color-text-muted:#9ca3af;--color-text-faint:#4b5563;
+      --color-primary:#16a3b8;--color-primary-soft:#082f36;--color-gold:#eab308;
+      --color-border:rgba(148,163,184,0.45);
+      --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-full:999px;
+      --shadow-md:0 18px 45px rgba(15,23,42,0.8);
+      --transition-fast:180ms cubic-bezier(0.18,0.89,0.32,1.28);
+      --content-wide:1200px;
+      --timeline-accent:#38bdf8;
+    }
+    body{
+      min-height:100vh;
+      background:radial-gradient(circle at top,#111827 0,#020617 52%,#000 100%);
+      color:var(--color-text);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+      font-size:var(--text-base);
+      line-height:1.6;
+      padding:var(--space-4);
+      display:flex;
+      justify-content:center;
+    }
+    .shell{
+      width:100%;
+      max-width:var(--content-wide);
+      background:linear-gradient(145deg,rgba(15,23,42,0.96),rgba(15,23,42,0.92));
+      border-radius:1.25rem;
+      box-shadow:var(--shadow-md);
+      border:1px solid rgba(148,163,184,0.4);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap:var(--space-4);
+      position:relative;
+    }
+    .shell::before{
+      content:"";
+      position:absolute;inset:-1px;
+      border-radius:inherit;
+      background:conic-gradient(from 210deg at 0% 0%,rgba(56,189,248,0.16),transparent 32%,rgba(250,204,21,0.14),transparent 72%,rgba(56,189,248,0.16));
+      opacity:0.6;
+      mix-blend-mode:screen;
+      pointer-events:none;
+    }
+    .shell-inner{position:relative;padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-4);z-index:1}
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-4);
+    }
+    .case-ident{
+      display:flex;
+      align-items:flex-start;
+      gap:var(--space-3);
+    }
+    .logo-pill{
+      width:40px;height:40px;border-radius:1rem;
+      background:radial-gradient(circle at 30% 0%,rgba(250,250,250,0.95),rgba(56,189,248,0.4));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 0 1px rgba(15,23,42,0.7),0 12px 30px rgba(8,47,73,0.7);
+    }
+    .logo-mark{
+      width:22px;height:22px;border-radius:7px;
+      border:2px solid rgba(15,23,42,0.65);
+      display:grid;place-items:center;
+      background:rgba(15,23,42,0.6);
+    }
+    .logo-mark span{
+      width:14px;height:14px;border-radius:4px;
+      background:conic-gradient(from 140deg,#0ea5e9,#22c55e,#eab308,#0ea5e9);
+      box-shadow:0 0 0 1px rgba(15,23,42,0.7);
+    }
+    .case-meta h1{font-size:var(--text-xl);letter-spacing:0.03em;margin-bottom:0.15rem}
+    .case-meta h1 span{font-weight:500;color:var(--color-text-muted)}
+    .case-meta .chips{display:flex;flex-wrap:wrap;gap:0.4rem;color:var(--color-text-muted);font-size:var(--text-xs)}
+    .chip{
+      padding:0.2rem 0.55rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.45);
+      background:radial-gradient(circle at 0 0,rgba(148,163,184,0.22),rgba(15,23,42,0.85));
+      display:inline-flex;align-items:center;gap:0.3rem;
+      text-transform:uppercase;letter-spacing:0.06em;
+    }
+    .chip-dot{width:7px;height:7px;border-radius:999px;background:var(--color-primary);box-shadow:0 0 0 3px rgba(56,189,248,0.2)}
+    .header-right{display:flex;align-items:center;gap:var(--space-3)}
+    .kpi-stack{display:flex;gap:var(--space-3)}
+    .kpi{
+      padding:0.45rem 0.8rem;border-radius:0.9rem;
+      border:1px solid rgba(148,163,184,0.45);
+      background:radial-gradient(circle at 0 0,rgba(8,47,73,0.7),rgba(15,23,42,0.96));
+      font-size:var(--text-xs);
+      text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);
+      display:flex;flex-direction:column;gap:0.15rem;min-width:110px;
+    }
+    .kpi strong{font-size:var(--text-sm);color:var(--color-text)}
+    .live-pill{
+      display:inline-flex;align-items:center;gap:0.4rem;
+      padding:0.3rem 0.75rem;border-radius:999px;
+      background:rgba(22,163,74,0.14);
+      border:1px solid rgba(74,222,128,0.3);
+      font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;
+      color:#bbf7d0;
+    }
+    .pulse{width:8px;height:8px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,0.22);animation:pulse 1.7s infinite ease-out}
+    @keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.7);opacity:0}}
+    .layout{
+      display:grid;
+      grid-template-columns:1.3fr 1fr;
+      gap:var(--space-4);
+      margin-top:var(--space-2);
+    }
+    .column{display:flex;flex-direction:column;gap:var(--space-4)}
+    .panel{
+      background:radial-gradient(circle at 0 0,rgba(30,64,175,0.22),rgba(15,23,42,0.96));
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(148,163,184,0.5);
+      padding:var(--space-4);
+      position:relative;
+      overflow:hidden;
+    }
+    .panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-3);gap:var(--space-3)}
+    .panel-title{font-size:var(--text-sm);text-transform:uppercase;letter-spacing:0.18em;color:var(--color-text-muted)}
+    .panel-badge{font-size:var(--text-xs);padding:0.1rem 0.55rem;border-radius:999px;border:1px solid rgba(148,163,184,0.6);color:var(--color-text-faint)}
+    .timeline{
+      position:relative;
+      padding-top:var(--space-1);
+    }
+    .timeline-track{
+      position:absolute;left:10px;top:0;bottom:0;
+      width:2px;border-radius:999px;
+      background:linear-gradient(to bottom,rgba(248,250,252,0.1),rgba(148,163,184,0.9));
+    }
+    .timeline-list{list-style:none;margin-left:2rem;display:flex;flex-direction:column;gap:var(--space-3)}
+    .event{
+      position:relative;
+      padding-left:0.5rem;
+      border-left:1px dashed rgba(148,163,184,0.35);
+    }
+    .event-node{
+      position:absolute;left:-1.25rem;top:0.2rem;width:14px;height:14px;border-radius:999px;
+      background:radial-gradient(circle at 30% 0,#f9fafb,#38bdf8);
+      box-shadow:0 0 0 3px rgba(56,189,248,0.25);
+    }
+    .event-node::after{
+      content:"";position:absolute;inset:3px;border-radius:inherit;background:#020617;
+    }
+    .event-label{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.1rem}
+    .event-type{font-size:var(--text-xs);padding:0.1rem 0.5rem;border-radius:999px;border:1px solid rgba(148,163,184,0.5);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em}
+    .event-date{font-size:var(--text-xs);color:var(--color-text-faint)}
+    .event-title{font-size:var(--text-sm);margin-bottom:0.1rem}
+    .event-meta{font-size:var(--text-xs);color:var(--color-text-muted)}
+    .event:hover{border-color:rgba(56,189,248,0.8)}
+    .event:hover .event-node{transform:scale(1.03);box-shadow:0 0 0 4px rgba(56,189,248,0.38)}
+    .event:hover .event-title{color:var(--color-primary)}
+    .pleadings-list{display:flex;flex-direction:column;gap:var(--space-2)}
+    .pleading-card{
+      border-radius:var(--radius-md);
+      border:1px solid rgba(148,163,184,0.5);
+      padding:0.7rem 0.75rem;
+      background:radial-gradient(circle at 0 0,rgba(30,64,175,0.18),rgba(15,23,42,0.98));
+      display:grid;grid-template-columns:1.3fr auto;gap:0.3rem 0.75rem;align-items:center;
+      cursor:pointer;
+      transition:transform var(--transition-fast),box-shadow var(--transition-fast),border-color var(--transition-fast),background var(--transition-fast);
+    }
+    .pleading-card:hover{
+      transform:translateY(-1px);
+      box-shadow:0 12px 30px rgba(15,23,42,0.85);
+      border-color:rgba(56,189,248,0.9);
+      background:radial-gradient(circle at 0 0,rgba(56,189,248,0.18),rgba(15,23,42,0.98));
+    }
+    .pleading-main{display:flex;flex-direction:column;gap:0.1rem}
+    .pleading-title{font-size:var(--text-sm)}
+    .pleading-meta{font-size:var(--text-xs);color:var(--color-text-muted)}
+    .pleading-tags{display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.1rem}
+    .tag{
+      font-size:var(--text-xs);
+      padding:0.1rem 0.45rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      color:var(--color-text-faint);
+    }
+    .status-pill{font-size:var(--text-xs);padding:0.12rem 0.6rem;border-radius:999px;justify-self:end;white-space:nowrap}
+    .status-open{background:rgba(56,189,248,0.14);border:1px solid rgba(56,189,248,0.65);color:#e0f2fe}
+    .status-ruled{background:rgba(34,197,94,0.14);border:1px solid rgba(34,197,94,0.65);color:#bbf7d0}
+    .status-due{background:rgba(234,179,8,0.12);border:1px solid rgba(234,179,8,0.7);color:#facc15}
+    .checklist{
+      display:flex;flex-direction:column;gap:var(--space-2);
+      margin-top:var(--space-1);
+    }
+    .check-row{
+      display:flex;align-items:flex-start;gap:0.6rem;
+      padding:0.55rem 0.6rem;
+      border-radius:var(--radius-md);
+      border:1px dashed rgba(148,163,184,0.4);
+      background:radial-gradient(circle at 0 0,rgba(15,23,42,0.9),rgba(15,23,42,0.96));
+    }
+    .check-dot{
+      width:16px;height:16px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      display:grid;place-items:center;
+      flex-shrink:0;
+    }
+    .check-dot span{width:9px;height:9px;border-radius:inherit;background:rgba(148,163,184,0.35)}
+    .check-row.done{border-style:solid;border-color:rgba(34,197,94,0.7);background:radial-gradient(circle at 0 0,rgba(22,163,74,0.32),rgba(15,23,42,0.96))}
+    .check-row.done .check-dot{border-color:rgba(74,222,128,0.9);background:rgba(22,163,74,0.22)}
+    .check-row.done .check-dot span{background:#4ade80}
+    .check-row.due{border-color:rgba(234,179,8,0.75);background:radial-gradient(circle at 0 0,rgba(234,179,8,0.24),rgba(15,23,42,0.96))}
+    .check-row.due .check-dot{border-color:#facc15;background:rgba(234,179,8,0.15)}
+    .check-row.due .check-dot span{background:#facc15}
+    .check-main{font-size:var(--text-sm)}
+    .check-sub{font-size:var(--text-xs);color:var(--color-text-muted)}
+    footer{
+      display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-2);font-size:var(--text-xs);color:var(--color-text-muted);
+    }
+    .footer-right{display:flex;gap:0.75rem;align-items:center}
+    .legend-dot{width:9px;height:9px;border-radius:999px}
+    .legend{display:flex;gap:0.5rem;align-items:center}
+    .legend span{font-size:var(--text-xs)}
+    @media (max-width:900px){
+      body{padding:var(--space-2)}
+      .shell-inner{padding:var(--space-3)}
+      .layout{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell" aria-label="Single case battle map demo">
+    <div class="shell-inner">
+      <header>
+        <div class="case-ident">
+          <div class="logo-pill" aria-hidden="true">
+            <div class="logo-mark"><span></span></div>
+          </div>
+          <div class="case-meta">
+            <h1>
+              CV 2023 0335 UN
+              <span>· Mohave County – Superior Court</span>
+            </h1>
+            <div class="chips">
+              <span class="chip"><span class="chip-dot"></span> Case Battle Map</span>
+              <span class="chip">Phase: Pre‑Trial</span>
+              <span class="chip">Posture: Plaintiff – Civil Rights / FCRA</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="kpi-stack">
+            <div class="kpi">
+              <span>Next deadline</span>
+              <strong>Rule 56 MSJ · 9 days</strong>
+            </div>
+            <div class="kpi">
+              <span>Preserved objections</span>
+              <strong>17 on record</strong>
+            </div>
+          </div>
+          <div class="live-pill">
+            <div class="pulse"></div>
+            Synced to docket
+          </div>
+        </div>
+      </header>
+
+      <section class="layout" aria-label="Case core layout">
+        <div class="column">
+          <section class="panel" aria-label="Chronological timeline">
+            <div class="panel-header">
+              <div class="panel-title">Procedural and factual timeline</div>
+              <span class="panel-badge">From first incident → today</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-track" aria-hidden="true"></div>
+              <ol class="timeline-list">
+                >
+                  <div class="event-node" aria-hidden="true"></div>
+                  <div class="event-label">
+                    <span class="event-type">Origin Event</span>
+                    <span class="event-date">Mar 14, 2023</span>
+                  </div>
+                  <div class="event-title">Traffic stop & on‑scene coercion documented</div>
+                  <div class="event-meta">Body‑cam requested; contemporaneous notes created; officer and agency entities linked.</div>
+                </li>
+                >
+                  <div class="event-node" aria-hidden="true"></div>
+                  <div class="event-label">
+                    <span class="event-type">Credit Reporting</span>
+                    <span class="event-date">Apr 03, 2023</span>
+                  </div>
+                  <div class="event-title">LexisNexis / CRA entries appear tied to incident</div>
+                  <div class="event-meta">FCRA hooks logged; disputed tradelines and furnisher relationships mapped to evidence set.</div>
+                </li>
+                >
+                  <div class="event-node" aria-hidden="true"></div>
+                  <div class="event-label">
+                    <span class="event-type">Complaint Filed</span>
+                    <span class="event-date">Aug 21, 2023</span>
+                  </div>
+                  <div class="event-title">Civil complaint lodged – constitutional & FCRA claims</div>
+                  <div class="event-meta">Venue and jurisdiction locked; all prior incidents bound into unified pleading theory.</div>
+                </li>
+                >
+                  <div class="event-node" aria-hidden="true"></div>
+                  <div class="event-label">
+                    <span class="event-type">Discovery</span>
+                    <span class="event-date">Jan 08, 2024</span>
+                  </div>
+                  <div class="event-title">Requests for production & subpoenas served</div>
+                  <div class="event-meta">Traffic footage, CRA data, internal policies and contracts linked as expected evidence; compliance tracked.</div>
+                </li>
+                >
+                  <div class="event-node" aria-hidden="true"></div>
+                  <div class="event-label">
+                    <span class="event-type">Today</span>
+                    <span class="event-date">Current</span>
+                  </div>
+                  <div class="event-title">Pre‑trial posture – summary judgment window</div>
+                  <div class="event-meta">Live countdown to dispositive motions; trial dates, settlement contacts, and appellate preservation status shown in right rail.</div>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="panel" aria-label="Strategic checklist">
+            <div class="panel-header">
+              <div class="panel-title">Strategic checklist – plaintiff, Arizona</div>
+              <span class="panel-badge">Linked to local & federal rules</span>
+            </div>
+            <div class="checklist">
+              <div class="check-row done">
+                <div class="check-dot"><span></span></div>
+                <div>
+                  <div class="check-main">Jurisdiction, venue, and parties verified on the record</div>
+                  <div class="check-sub">Complaint on file; service returns logged; any jurisdictional defects raised and cured before dispositive motions.</div>
+                </div>
+              </div>
+              <div class="check-row done">
+                <div class="check-dot"><span></span></div>
+                <div>
+                  <div class="check-main">Constitutional and FCRA theories articulated in pleadings</div>
+                  <div class="check-sub">Claims framed under Arizona and federal authority; each adverse act mapped to a specific right, statute, or regulation.</div>
+                </div>
+              </div>
+              <div class="check-row due">
+                <div class="check-dot"><span></span></div>
+                <div>
+                  <div class="check-main">Rule‑driven summary judgment plan locked</div>
+                  <div class="check-sub">Material fact grid complete; citations to record evidence drafted; timelines and contradictions ready for hearing presentation.</div>
+                </div>
+              </div>
+              <div class="check-row">
+                <div class="check-dot"><span></span></div>
+                <div>
+                  <div class="check-main">Trial‑ready exhibit set and witness map</div>
+                  <div class="check-sub">Each exhibit numbered, linked to issues and witnesses; objections and limiting instructions prepared in advance.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="column" aria-label="Pleadings and motion posture">
+          <section class="panel" aria-label="Pleadings and motions">
+            <div class="panel-header">
+              <div class="panel-title">Pleadings · Motions · Orders</div>
+              <span class="panel-badge">Tap any card to dive into evidence</span>
+            </div>
+            <div class="pleadings-list">
+              <article class="pleading-card" tabindex="0">
+                <div class="pleading-main">
+                  <div class="pleading-title">Verified complaint filed</div>
+                  <div class="pleading-meta">Aug 21, 2023 · Civil rights, FCRA, coercion, unlawful stop</div>
+                  <div class="pleading-tags">
+                    <span class="tag">Pleadings closed</span>
+                    <span class="tag">Relates to origin incident</span>
+                  </div>
+                </div>
+                <div class="status-pill status-ruled">On file</div>
+              </article>
+
+              <article class="pleading-card" tabindex="0">
+                <div class="pleading-main">
+                  <div class="pleading-title">Defendants' motion to dismiss / partial summary judgment</div>
+                  <div class="pleading-meta">Nov 02, 2023 · Targeting constitutional counts & punitive damages</div>
+                  <div class="pleading-tags">
+                    <span class="tag">Response filed</span>
+                    <span class="tag">Hearing held</span>
+                  </div>
+                </div>
+                <div class="status-pill status-ruled">Order entered</div>
+              </article>
+
+              <article class="pleading-card" tabindex="0">
+                <div class="pleading-main">
+                  <div class="pleading-title">Plaintiff's motion for summary judgment</div>
+                  <div class="pleading-meta">Due in 9 days · Window under Rule 56 / Arizona analogue</div>
+                  <div class="pleading-tags">
+                    <span class="tag">Dispositive</span>
+                    <span class="tag">Requires fact grid</span>
+                  </div>
+                </div>
+                <div class="status-pill status-due">In drafting</div>
+              </article>
+
+              <article class="pleading-card" tabindex="0">
+                <div class="pleading-main">
+                  <div class="pleading-title">Post‑trial / appellate preservation plan</div>
+                  <div class="pleading-meta">Configured now · Activates at first final appealable order</div>
+                  <div class="pleading-tags">
+                    <span class="tag">Rule 59 / 60</span>
+                    <span class="tag">Notice of appeal timers</span>
+                  </div>
+                </div>
+                <div class="status-pill status-open">Scenario ready</div>
+              </article>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <footer>
+        <div>Trial War Room OS · Single‑case battle map demo</div>
+        <div class="footer-right">
+          <div class="legend"><span class="legend-dot" style="background:#38bdf8"></span><span>Procedural steps</span></div>
+          <div class="legend"><span class="legend-dot" style="background:#22c55e"></span><span>Completed & ruled</span></div>
+          <div class="legend"><span class="legend-dot" style="background:#eab308"></span><span>Time‑sensitive</span></div>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

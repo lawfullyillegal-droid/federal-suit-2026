@@ -1,0 +1,149 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 23304 was started by u0_a494 on localhost,
+Sun Apr 12 10:29:28 2026
+The command was "/data/data/com.termux/files/usr/bin/prover9 -f cowins_liability.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file cowins_liability.in
+
+
+formulas(assumptions).
+(all x all y (Owner(x,y) & Activity(y,Felony) -> Responsible(x,y))).
+(all x all y (Responsible(x,y) & FailedToCure(x) -> InDefault(x))).
+Owner(Connie,APN_306_23_133A).
+Activity(APN_306_23_133A,Felony).
+FailedToCure(Connie).
+end_of_list.
+
+formulas(goals).
+InDefault(Connie).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x all y (Owner(x,y) & Activity(y,Felony) -> Responsible(x,y))) # label(non_clause).  [assumption].
+2 (all x all y (Responsible(x,y) & FailedToCure(x) -> InDefault(x))) # label(non_clause).  [assumption].
+3 InDefault(Connie) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-Owner(x,y) | -Activity(y,Felony) | Responsible(x,y).  [clausify(1)].
+-Responsible(x,y) | -FailedToCure(x) | InDefault(x).  [clausify(2)].
+Owner(Connie,APN_306_23_133A).  [assumption].
+Activity(APN_306_23_133A,Felony).  [assumption].
+FailedToCure(Connie).  [assumption].
+-InDefault(Connie).  [deny(3)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating Owner/2
+4 Owner(Connie,APN_306_23_133A).  [assumption].
+5 -Owner(x,y) | -Activity(y,Felony) | Responsible(x,y).  [clausify(1)].
+Derived: -Activity(APN_306_23_133A,Felony) | Responsible(Connie,APN_306_23_133A).  [resolve(4,a,5,a)].
+
+Eliminating Responsible/2
+6 -Activity(APN_306_23_133A,Felony) | Responsible(Connie,APN_306_23_133A).  [resolve(4,a,5,a)].
+7 -Responsible(x,y) | -FailedToCure(x) | InDefault(x).  [clausify(2)].
+Derived: -Activity(APN_306_23_133A,Felony) | -FailedToCure(Connie) | InDefault(Connie).  [resolve(6,b,7,a)].
+
+Eliminating Activity/2
+8 -Activity(APN_306_23_133A,Felony) | -FailedToCure(Connie) | InDefault(Connie).  [resolve(6,b,7,a)].
+9 Activity(APN_306_23_133A,Felony).  [assumption].
+Derived: -FailedToCure(Connie) | InDefault(Connie).  [resolve(8,a,9,a)].
+
+Eliminating FailedToCure/1
+10 -FailedToCure(Connie) | InDefault(Connie).  [resolve(8,a,9,a)].
+11 FailedToCure(Connie).  [assumption].
+Derived: InDefault(Connie).  [resolve(10,a,11,a)].
+
+Eliminating InDefault/1
+12 InDefault(Connie).  [resolve(10,a,11,a)].
+13 -InDefault(Connie).  [deny(3)].
+Derived: $F.  [resolve(12,a,13,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 14.
+% Level of proof is 6.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x all y (Owner(x,y) & Activity(y,Felony) -> Responsible(x,y))) # label(non_clause).  [assumption].
+2 (all x all y (Responsible(x,y) & FailedToCure(x) -> InDefault(x))) # label(non_clause).  [assumption].
+3 InDefault(Connie) # label(non_clause) # label(goal).  [goal].
+4 Owner(Connie,APN_306_23_133A).  [assumption].
+5 -Owner(x,y) | -Activity(y,Felony) | Responsible(x,y).  [clausify(1)].
+6 -Activity(APN_306_23_133A,Felony) | Responsible(Connie,APN_306_23_133A).  [resolve(4,a,5,a)].
+7 -Responsible(x,y) | -FailedToCure(x) | InDefault(x).  [clausify(2)].
+8 -Activity(APN_306_23_133A,Felony) | -FailedToCure(Connie) | InDefault(Connie).  [resolve(6,b,7,a)].
+9 Activity(APN_306_23_133A,Felony).  [assumption].
+10 -FailedToCure(Connie) | InDefault(Connie).  [resolve(8,a,9,a)].
+11 FailedToCure(Connie).  [assumption].
+12 InDefault(Connie).  [resolve(10,a,11,a)].
+13 -InDefault(Connie).  [deny(3)].
+14 $F.  [resolve(12,a,13,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=11. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 23304 exit (max_proofs) Sun Apr 12 10:29:28 2026

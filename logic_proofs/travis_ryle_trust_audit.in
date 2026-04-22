@@ -1,0 +1,18 @@
+
+formulas(assumptions).
+  % If it's a Private Trust and there is a Security Agreement, it's a Corporate Debtor.
+  PrivateTrust(travis_ryle_trust) & SecurityAgreement(travis_ryle_trust) -> CorporateDebtor(travis_ryle_trust).
+
+  % Reported status + Corporate Debtor status equals Identity Conversion.
+  ReportedAs(lexisnexis, travis_ryle_trust, corporate_status) & CorporateDebtor(travis_ryle_trust) -> IdentityConversion(travis_ryle_trust).
+
+  % Current Case Facts
+  PrivateTrust(travis_ryle_trust).
+  ReportedAs(lexisnexis, travis_ryle_trust, corporate_status).
+  -SecurityAgreement(travis_ryle_trust).
+end_of_list.
+
+formulas(goals).
+  % Goal: Prove that Identity Conversion is NOT valid if no agreement exists.
+  IdentityConversion(travis_ryle_trust).
+end_of_list.

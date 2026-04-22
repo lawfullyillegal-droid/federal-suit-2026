@@ -1,0 +1,16 @@
+formulas(assumptions).
+  % Rule: Jurisdiction requires a lawful basis; fabrication negates that basis
+  all c (FabricatedStatus(c) -> -LawfulBasis(c)).
+  all c (-LawfulBasis(c) -> VoidAbInitio(c)).
+
+  % Rule: A Void judgment cannot be a basis for a felony classification
+  all c all p (VoidAbInitio(c) & Classification(p, c, felony) -> IdentityConversion(p)).
+
+  % Case Facts for the 2007 Ventura Case
+  FabricatedStatus(case_2007).
+  Classification(travis, case_2007, felony).
+end_of_list.
+
+formulas(goals).
+  VoidAbInitio(case_2007).
+end_of_list.
