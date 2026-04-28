@@ -1,0 +1,8 @@
+{
+  "audit_id": 17,
+  "nexus": "Mohave County Superior Court <-> LexisNexis",
+  "mechanism": "Automated Record Injection",
+  "identified_official": "Christina Spurlock, Clerk",
+  "legal_theory": "Systemic Due Process Failure / Automated Defamation",
+  "status": "Verified via legal_engine.audits"
+}
