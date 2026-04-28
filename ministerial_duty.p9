@@ -1,0 +1,16 @@
+formulas(sos).
+  % Legal Axioms for the Federal Suit
+  all x (StatuteMandated(x) -> Ministerial(x)).
+  all x (Ministerial(x) -> -Discretionary(x)).
+  all x (KnowledgeOfError(x) & -ActionTaken(x) -> Breach(x)).
+  all x (Breach(x) & -Discretionary(x) -> ImmunityWaived(x)).
+  
+  % Evidence from the 21.9M Audit (Audits 10-17)
+  StatuteMandated(Accuracy).
+  KnowledgeOfError(Accuracy).
+  -ActionTaken(Accuracy).
+end_of_list.
+
+formulas(goals).
+  ImmunityWaived(Accuracy).
+end_of_list.

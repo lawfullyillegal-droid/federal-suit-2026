@@ -1,0 +1,168 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 13695 was started by u0_a494 on localhost,
+Tue Apr 28 15:59:48 2026
+The command was "/data/data/com.termux/files/home/LADR-2009-11A/bin/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+formulas(sos).
+(all x (StatuteMandated(x) -> Ministerial(x))).
+(all x (Ministerial(x) -> -Discretionary(x))).
+(all x (KnowledgeOfError(x) & -ActionTaken(x) -> Breach(x))).
+(all x (Breach(x) & -Discretionary(x) -> ImmunityWaived(x))).
+StatuteMandated(Accuracy).
+KnowledgeOfError(Accuracy).
+-ActionTaken(Accuracy).
+end_of_list.
+
+formulas(goals).
+ImmunityWaived(Accuracy).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x (StatuteMandated(x) -> Ministerial(x))) # label(non_clause).  [assumption].
+2 (all x (Ministerial(x) -> -Discretionary(x))) # label(non_clause).  [assumption].
+3 (all x (KnowledgeOfError(x) & -ActionTaken(x) -> Breach(x))) # label(non_clause).  [assumption].
+4 (all x (Breach(x) & -Discretionary(x) -> ImmunityWaived(x))) # label(non_clause).  [assumption].
+5 ImmunityWaived(Accuracy) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-StatuteMandated(x) | Ministerial(x).  [clausify(1)].
+-Ministerial(x) | -Discretionary(x).  [clausify(2)].
+-KnowledgeOfError(x) | ActionTaken(x) | Breach(x).  [clausify(3)].
+-Breach(x) | Discretionary(x) | ImmunityWaived(x).  [clausify(4)].
+StatuteMandated(Accuracy).  [assumption].
+KnowledgeOfError(Accuracy).  [assumption].
+-ActionTaken(Accuracy).  [assumption].
+-ImmunityWaived(Accuracy).  [deny(5)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating StatuteMandated/1
+6 StatuteMandated(Accuracy).  [assumption].
+7 -StatuteMandated(x) | Ministerial(x).  [clausify(1)].
+Derived: Ministerial(Accuracy).  [resolve(6,a,7,a)].
+
+Eliminating Ministerial/1
+8 Ministerial(Accuracy).  [resolve(6,a,7,a)].
+9 -Ministerial(x) | -Discretionary(x).  [clausify(2)].
+Derived: -Discretionary(Accuracy).  [resolve(8,a,9,a)].
+
+Eliminating KnowledgeOfError/1
+10 KnowledgeOfError(Accuracy).  [assumption].
+11 -KnowledgeOfError(x) | ActionTaken(x) | Breach(x).  [clausify(3)].
+Derived: ActionTaken(Accuracy) | Breach(Accuracy).  [resolve(10,a,11,a)].
+
+Eliminating Breach/1
+12 ActionTaken(Accuracy) | Breach(Accuracy).  [resolve(10,a,11,a)].
+13 -Breach(x) | Discretionary(x) | ImmunityWaived(x).  [clausify(4)].
+Derived: ActionTaken(Accuracy) | Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(12,b,13,a)].
+
+Eliminating ActionTaken/1
+14 ActionTaken(Accuracy) | Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(12,b,13,a)].
+15 -ActionTaken(Accuracy).  [assumption].
+Derived: Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(14,a,15,a)].
+
+Eliminating ImmunityWaived/1
+16 Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(14,a,15,a)].
+17 -ImmunityWaived(Accuracy).  [deny(5)].
+Derived: Discretionary(Accuracy).  [resolve(16,b,17,a)].
+
+Eliminating Discretionary/1
+18 Discretionary(Accuracy).  [resolve(16,b,17,a)].
+19 -Discretionary(Accuracy).  [resolve(8,a,9,a)].
+Derived: $F.  [resolve(18,a,19,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 20.
+% Level of proof is 6.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x (StatuteMandated(x) -> Ministerial(x))) # label(non_clause).  [assumption].
+2 (all x (Ministerial(x) -> -Discretionary(x))) # label(non_clause).  [assumption].
+3 (all x (KnowledgeOfError(x) & -ActionTaken(x) -> Breach(x))) # label(non_clause).  [assumption].
+4 (all x (Breach(x) & -Discretionary(x) -> ImmunityWaived(x))) # label(non_clause).  [assumption].
+5 ImmunityWaived(Accuracy) # label(non_clause) # label(goal).  [goal].
+6 StatuteMandated(Accuracy).  [assumption].
+7 -StatuteMandated(x) | Ministerial(x).  [clausify(1)].
+8 Ministerial(Accuracy).  [resolve(6,a,7,a)].
+9 -Ministerial(x) | -Discretionary(x).  [clausify(2)].
+10 KnowledgeOfError(Accuracy).  [assumption].
+11 -KnowledgeOfError(x) | ActionTaken(x) | Breach(x).  [clausify(3)].
+12 ActionTaken(Accuracy) | Breach(Accuracy).  [resolve(10,a,11,a)].
+13 -Breach(x) | Discretionary(x) | ImmunityWaived(x).  [clausify(4)].
+14 ActionTaken(Accuracy) | Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(12,b,13,a)].
+15 -ActionTaken(Accuracy).  [assumption].
+16 Discretionary(Accuracy) | ImmunityWaived(Accuracy).  [resolve(14,a,15,a)].
+17 -ImmunityWaived(Accuracy).  [deny(5)].
+18 Discretionary(Accuracy).  [resolve(16,b,17,a)].
+19 -Discretionary(Accuracy).  [resolve(8,a,9,a)].
+20 $F.  [resolve(18,a,19,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=15. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 13695 exit (max_proofs) Tue Apr 28 15:59:48 2026
