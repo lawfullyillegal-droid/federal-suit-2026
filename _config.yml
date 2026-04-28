@@ -1,0 +1,29 @@
+title: Federal Suit 2026
+description: >-
+  Public documentation of a federal civil rights case addressing a 12-year
+  administrative misclassification (2008-2020) and the resulting harm.
+baseurl: "/federal-suit-2026"
+url: "https://lawfullyillegal-droid.github.io"
+
+theme: minima
+
+author:
+  name: lawfullyillegal-droid
+
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+nav:
+  - title: Home
+    url: /
+  - title: Statement of Facts
+    url: /statement-of-facts/
+  - title: Exhibits
+    url: /exhibits/
+  - title: Notices
+    url: /notices/
+  - title: Repository
+    url: https://github.com/lawfullyillegal-droid/federal-suit-2026
