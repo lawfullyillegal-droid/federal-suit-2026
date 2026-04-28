@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "case_identifier": "Federal Civil Rights Suit 2026 - Travis Ryle v. Mohave County et al.",
+  "last_updated": "2026-04-28",
+  "petitioner": {
+    "name": "Travis Ryle",
+    "status": "Living Man / Authorized Representative",
+    "location": "Golden Valley, AZ",
+    "address": "5570 West Tonto Place, Golden Valley, AZ",
+    "az_dl_suffix": "6741"
+  },
+  "cases": [
+    {
+      "case_id": "TR-2024-0143",
+      "court": "Kingman / Cerbat Justice Court",
+      "jurisdiction": "Mohave County, Arizona",
+      "incident_date": "2024-04-28",
+      "case_type": "Traffic / Civil Rights",
+      "status": "Settled under duress",
+      "settlement_amount": 1150.80,
+      "forced_counsel": {
+        "attorney": "Jonathan Robinson",
+        "violation": "6th Amendment - appointed despite written waiver of counsel",
+        "remedy_sought": "Emergency stay / Motion to vacate judgment"
+      },
+      "violations_cited": [
+        { "date": "2024-04-28", "charge": "Speeding - 20/45 mph over", "disposition_date": "2024-08-26", "disposition": "Convicted" },
+        { "date": "2024-04-28", "charge": "Stop sign violation", "disposition_date": "2024-08-26", "disposition": "Convicted" },
+        { "date": "2024-04-28", "charge": "No current registration", "disposition_date": "2024-08-26", "disposition": "Convicted" },
+        { "date": "2024-04-28", "charge": "Failure to comply with financial responsibility laws", "disposition_date": "2024-08-26", "disposition": "Convicted" },
+        { "date": "2024-04-29", "charge": "No mandatory insurance", "disposition_date": "2024-10-24", "disposition": "Convicted" },
+        { "date": "2024-09-10", "charge": "Displaying plate suspended for financial responsibility", "disposition_date": "2024-08-26", "disposition": "Convicted - DATE DISCREPANCY: conviction predates incident - FCRA reporting error" }
+      ],
+      "license_actions": [
+        { "action": "Failure to Appear Suspension", "code": "28-3308", "date": "2024-06-21", "cleared": "2024-07-03" },
+        { "action": "Financial Responsibility Suspension", "code": "28-4135E", "date": "2024-08-27", "eligible_reinstatement": "2024-12-10" }
+      ],
+      "nexus_to_federal_suit": "LexisNexis reported active warrant derived from void 2007 judgment during April 28 traffic stop. False data directly triggered enforcement. Links to 42 U.S.C. 1983/1985 and FCRA claims."
+    },
+    {
+      "case_id": "23CEFS03419",
+      "court": "Fresno County Superior Court",
+      "jurisdiction": "Fresno County, California",
+      "agency": "Fresno County Department of Child Support Services (DCSS)",
+      "case_type": "Child Support",
+      "status": "Debt vacated January 2026",
+      "original_debt": 20000.00,
+      "debt_vacated_date": "2026-01",
+      "fcra_violation": {
+        "violating_entity": "Equifax",
+        "violation_type": "Reporting vacated/extinguished debt as active",
+        "statute": "15 U.S.C. § 1681e(b) and § 1681n",
+        "classification": "Willful Non-Compliance",
+        "action_required": "Equifax dispute file - document willful failure to update after written notice"
+      },
+      "civil_rights_basis": {
+        "statute": "42 U.S.C. § 1983 / § 1985",
+        "claim": "Unlawful jurisdiction - Fresno County DCSS initiated case without lawful authority"
+      }
+    }
+  ],
+  "fcra_violations": [
+    {
+      "entity": "LexisNexis / RELX",
+      "violation_type": "False active warrant reporting",
+      "statute": "15 U.S.C. § 1681e(b)",
+      "description": "Reported an active warrant derived from void 2007 judgment during April 28, 2024 traffic stop. Failure to purge inaccurate records despite repeated notice.",
+      "ongoing_violation_doctrine": true,
+      "classification": "Willful Non-Compliance",
+      "additional_error": "Conviction date (2024-08-26) listed for incident dated 2024-09-10 - clerical reporting error disputable under 15 U.S.C. § 1681i"
+    },
+    {
+      "entity": "Equifax",
+      "violation_type": "Reporting extinguished debt as active",
+      "statute": "15 U.S.C. § 1681e(b) and § 1681n",
+      "description": "Continues to list $20,000 child support debt as active despite being vacated in January 2026 (Case 23CEFS03419).",
+      "classification": "Willful Non-Compliance",
+      "dispute_status": "No active dispute on file - dispute to be filed"
+    },
+    {
+      "entity": "Mohave County / Cerbat Justice Court",
+      "violation_type": "Failure to report reinstatement / cleared status to data aggregators",
+      "statute": "15 U.S.C. § 1681s-2",
+      "description": "Failure to notify LexisNexis and other data aggregators of cleared/completed suspension statuses in timely manner.",
+      "classification": "Negligent Non-Compliance"
+    }
+  ],
+  "arizona_records": {
+    "liheap": {
+      "program": "Low Income Home Energy Assistance Program (LIHEAP)",
+      "state": "Arizona",
+      "utility": "Unisource Energy Services",
+      "approval_date": "2025-11",
+      "disbursements": [
+        { "amount": 320.00, "date": "2025-11" },
+        { "amount": 500.00, "date": "2025-11" }
+      ],
+      "total_benefit": 820.00,
+      "citizenship_verification": "Accepted by State of Arizona during 2025 application process",
+      "legal_significance": "Establishes 'Known Truth' - State of AZ accepted citizenship/status documentation. Any subsequent government or credit agency dispute of petitioner's status constitutes a Data Reporting Accuracy violation."
+    },
+    "insurance_history": [
+      { "carrier": "Mercury Insurance", "start": "2021-02-25", "end": "2021-08-25", "status": "Active" },
+      { "carrier": "Liberty Mutual", "start": "2021-09-26", "end": "2022-06-27", "status": "Cancelled at customer request" },
+      { "carrier": "GEICO", "start": "2022-06-27", "end": "2022-08-12", "status": "Active" },
+      { "carrier": "Progressive", "start": "2025-04-04", "end": "2025-10-04", "status": "Active - 2025 Operator policy" }
+    ]
+  },
+  "doj_reference": {
+    "report_number": "490431-FDQ",
+    "agency": "DOJ Civil Rights Division",
+    "date": "2026-01-06",
+    "significance": "Substantive federal oversight response. Cite in all filings to prevent local court dismissal of claims as frivolous."
+  },
+  "damages_summary": {
+    "ventura_county_claim": {
+      "period": "2007-2021",
+      "special_economic": 1390000,
+      "general_compensatory": 2000000,
+      "punitive": 2000000,
+      "subtotal": 5390000
+    },
+    "kingman_federal_claim": {
+      "period": "2024-2026",
+      "special_economic_range": [2000000, 5000000],
+      "general_compensatory_range": [5000000, 8000000],
+      "fcra_statutory_range": [3000000, 6000000],
+      "punitive": "TBD",
+      "subtotal_range": [9000000, 19000000]
+    },
+    "combined_estimated_range": [14390000, 24390000]
+  },
+  "acceleration_actions": [
+    "File IFP application to U.S. District Court, Phoenix (pro se federal docket)",
+    "Motion for Partial Summary Judgment on void status of 2007 judgment",
+    "Rule 68 Offer of Judgment to corporate defendants (LexisNexis, Equifax)",
+    "Cite DOJ Report #490431-FDQ in all pleadings",
+    "Invoke AB 177 precedent (Ventura County collection withdrawal, July 13, 2021)",
+    "File FCRA dispute with Equifax re: $20,000 vacated child support debt",
+    "File FCRA dispute with LexisNexis re: false warrant and date discrepancy (Aug 26 conviction / Sept 10 incident)",
+    "Motion to vacate Kingman judgment (TR-2024-0143) based on forced counsel (6th Amendment)"
+  ]
+}
