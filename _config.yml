@@ -27,3 +27,42 @@ nav:
     url: /notices/
   - title: Repository
     url: https://github.com/lawfullyillegal-droid/federal-suit-2026
+
+# Exclude non-Jekyll directories and files from the build
+exclude:
+  - .android
+  - .cache
+  - .cargo
+  - .config
+  - .gnupg
+  - .local
+  - .npm
+  - .nvm
+  - .ssh
+  - .termux
+  - .bash_history
+  - .bashrc
+  - 03_Logic_Proofs
+  - 04_Kingman_Audit
+  - Dork_Results
+  - Evidence
+  - LADR-2009-11A
+  - LADR-2009-11A.tar.gz
+  - Logs
+  - POOF
+  - Scripts
+  - Tools
+  - command-center
+  - downloads
+  - enforceai
+  - logic_proofs
+  - my-website
+  - my_website
+  - proofs
+  - sec-project
+  - storage
+  - audit.py
+  - broadcast_notice.py
+  - generate_facts.py
+  - Gemfile.lock
+  - vendor
