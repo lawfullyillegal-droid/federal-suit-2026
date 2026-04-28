@@ -36,3 +36,7 @@ The following facts have been verified via First-Order Logic (Prover9) and are s
 * Identity Conversion Duration: 4380 Days
 * Statutory Assessment: ,380,000.00
 * Cumulative Principal Claim: 3,140,000.00
+## Damage Assessment: Kingman Justice Court
+* Identity Conversion Duration: 4380 Days
+* Principal Assessment: ,380,000.00
+* TOTAL CUMULATIVE CLAIM: 7,520,000.00
