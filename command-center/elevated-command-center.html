@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevated Command Center — Federal Suit 2026</title>
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --panel: #111722;
+      --border: #1e2d45;
+      --accent: #3a7bd5;
+      --accent2: #00d4ff;
+      --warn: #e04444;
+      --gold: #c9a84c;
+      --text: #d0dae8;
+      --dim: #6a7f9a;
+      --green: #27ae60;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #0d1b2e 0%, #0b0e14 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-block { display: flex; align-items: center; gap: 14px; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .logo-text h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; color: #fff; }
+    .logo-text p { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.12em; text-transform: uppercase; }
+    .header-meta { font-size: 0.75rem; color: var(--dim); text-align: right; }
+    .header-meta strong { color: var(--accent2); }
+
+    nav {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+    }
+    nav a {
+      padding: 12px 18px;
+      font-size: 0.8rem;
+      color: var(--dim);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--accent2);
+      border-bottom-color: var(--accent2);
+    }
+
+    .grid { display: grid; grid-template-columns: 260px 1fr 280px; gap: 20px; padding: 24px 32px; max-width: 1600px; margin: 0 auto; }
+    @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .panel-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #15202f; }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-label { font-size: 0.8rem; color: var(--dim); }
+    .stat-val { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .stat-val.green { color: var(--green); }
+    .stat-val.warn { color: var(--warn); }
+    .stat-val.gold { color: var(--gold); }
+    .stat-val.blue { color: var(--accent2); }
+
+    .progress-bar { background: #1a2840; border-radius: 4px; height: 6px; margin-top: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-green { background: #1a3d2b; color: var(--green); }
+    .badge-warn { background: #3d1a1a; color: var(--warn); }
+    .badge-blue { background: #0f2140; color: var(--accent2); }
+    .badge-gold { background: #2e2410; color: var(--gold); }
+    .badge-dim { background: #151e2e; color: var(--dim); }
+
+    .track-block { margin-bottom: 16px; }
+    .track-title { font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .track-detail { font-size: 0.75rem; color: var(--dim); line-height: 1.5; }
+
+    .exhibit-path {
+      background: #0d1926;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .exhibit-path strong { color: var(--accent2); }
+
+    .timeline-item { display: flex; gap: 14px; margin-bottom: 14px; }
+    .timeline-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .timeline-content .date { font-size: 0.7rem; color: var(--gold); font-weight: 700; }
+    .timeline-content .event { font-size: 0.78rem; color: var(--text); margin-top: 2px; line-height: 1.4; }
+
+    .action-btn {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #0d1926;
+      color: var(--text);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .action-btn:hover { background: #142236; border-color: var(--accent); color: #fff; }
+    .action-btn span { color: var(--accent2); margin-right: 8px; }
+
+    .score-big { font-size: 2.2rem; font-weight: 800; color: var(--green); }
+    .score-label { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+
+    .entity-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid #15202f;
+    }
+    .entity-item:last-child { border-bottom: none; }
+    .entity-icon {
+      width: 30px; height: 30px;
+      border-radius: 6px;
+      background: #142236;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .entity-name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+    .entity-role { font-size: 0.7rem; color: var(--dim); margin-top: 2px; }
+
+    .ops-footer {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      padding: 14px 32px;
+      font-size: 0.72rem;
+      color: var(--dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ops-footer a { color: var(--accent2); text-decoration: none; }
+    .ops-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-block">
+    <div class="logo-icon">⚖️</div>
+    <div class="logo-text">
+      <h1>ELEVATED COMMAND CENTER</h1>
+      <p>Federal Suit 2026 — Opposition-Grade Interface</p>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div>Case Anchor: <strong>U250170282628</strong></div>
+    <div>Consumer File: <strong>11133734</strong></div>
+    <div>Repo: <strong>federal-suit-2026</strong></div>
+  </div>
+</header>
+
+<nav>
+  <a href="../index.md" class="active">Strategic Overview</a>
+  <a href="../Evidence/">Live Evidence Theater</a>
+  <a href="../03_Logic_Proofs/">Entity Constellation</a>
+  <a href="../statement_of_facts.md">Chronology Engine</a>
+  <a href="../exhibits.md">Draft Arsenal</a>
+  <a href="../notices.md">Records Requests</a>
+  <a href="../Lawsuit_Master_Copy.html">Master Filing</a>
+</nav>
+
+<div class="grid">
+
+  <!-- LEFT SIDEBAR -->
+  <aside>
+    <div class="panel">
+      <div class="panel-title">Mission Posture</div>
+      <div class="stat-row"><span class="stat-label">Active Tracks</span><span class="stat-val blue">3-Track</span></div>
+      <div class="stat-row"><span class="stat-label">Docs Surfaced</span><span class="stat-val">74</span></div>
+      <div class="stat-row"><span class="stat-label">Chronology Nodes</span><span class="stat-val">12</span></div>
+      <div class="stat-row"><span class="stat-label">Draft Actions</span><span class="stat-val">6</span></div>
+      <div class="stat-row"><span class="stat-label">Records Queued</span><span class="stat-val gold">Queued</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Anchor Filing</div>
+      <div class="stat-row"><span class="stat-label">UCC Nexus</span><span class="stat-val blue">U250170282628</span></div>
+      <div class="stat-row"><span class="stat-label">Disclosure File</span><span class="stat-val">11133734</span></div>
+      <div class="stat-row"><span class="stat-label">Primary Risk</span><span class="stat-val warn">AZ Stop</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Presentation Score</div>
+      <div class="score-big">9.4<span style="font-size:1rem;color:var(--dim)">/10</span></div>
+      <div class="score-label">Opposition-impression protocol</div>
+      <div class="progress-bar" style="margin-top:10px"><div class="progress-fill" style="width:94%"></div></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Operational Leverage</div>
+      <div class="stat-row"><span class="stat-label">Evidence coherence</span><span class="stat-val green">HIGH</span></div>
+      <div class="stat-row"><span class="stat-label">Doc readiness</span><span class="stat-val green">HIGH</span></div>
+      <div class="stat-row"><span class="stat-label">Narrative discipline</span><span class="stat-val gold">ACTIVE</span></div>
+      <div class="stat-row"><span class="stat-label">Readiness</span><span class="stat-val">82% primed</span></div>
+    </div>
+  </aside>
+
+  <!-- MAIN PANEL -->
+  <main>
+    <div class="panel">
+      <div class="panel-title">Fast-Win Tracks</div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;">
+        <div class="track-block">
+          <div class="track-title">🏦 Data Misuse Track</div>
+          <div class="track-detail">LexisNexis, OpenCorporates, Bizfile lineage, UCC propagation.</div>
+        </div>
+        <div class="track-block">
+          <div class="track-title">⚖️ Arizona Rights Track</div>
+          <div class="track-detail">Stop, weapon draw, search, arrest, warrant, court record chain.</div>
+        </div>
+        <div class="track-block">
+          <div class="track-title">📋 Pressure Response</div>
+          <div class="track-detail">Hold notices, chronology, exhibit discipline, source trace.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Active Theater — Exhibit Paths</div>
+      <div class="exhibit-path"><strong>Exhibit Path A</strong><br/>UCC amendment → OpenCorporates mislink → counsel pressure → rescission chain.</div>
+      <div class="exhibit-path" style="border-left-color:var(--accent2)"><strong>Exhibit Path B</strong><br/>Lexis disclosure → source contributors → disputed accuracy → reinvestigation demand.</div>
+      <div class="exhibit-path" style="border-left-color:var(--gold)"><strong>Exhibit Path C</strong><br/>Traffic stop → arrest record → warrant issue → publication and downstream harm.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Chronology Engine</div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="date">June 2025</div><div class="event">Ownership and UCC activity begins the structural trail.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="date">June 25, 2025</div><div class="event">Demand to LexisNexis asserts unlawful aggregation and requests correction.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="date">July 15, 2025</div><div class="event">UCC3 amendment sharpens debtor identity and public-record traceability.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="date">Aug. 2025</div><div class="event">Pressure sequence escalates through counsel and rescission demands.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background:var(--warn)"></div><div class="timeline-content"><div class="date">Arizona Track</div><div class="event">Traffic stop and warrant events become discrete rights-violation branch.</div></div></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Immediate Actions</div>
+      <button class="action-btn"><span>🔒</span> <strong>PRESERVE</strong> — Send hold notices to data vendors and agency record custodians</button>
+      <button class="action-btn"><span>📥</span> <strong>EXTRACT</strong> — Pull all bodycam, CAD, warrant, minute entry, and disclosure references</button>
+      <button class="action-btn"><span>📊</span> <strong>PRESENT</strong> — Convert theory into record-backed story blocks with dates and documents</button>
+      <button class="action-btn" onclick="window.location='../Lawsuit_Master_Copy.html'"><span>📄</span> <strong>OPEN MASTER FILING</strong> — Lawsuit_Master_Copy.html</button>
+      <button class="action-btn" onclick="window.location='../statement_of_facts.md'"><span>📋</span> <strong>STATEMENT OF FACTS</strong> — View primary narrative</button>
+      <button class="action-btn" onclick="window.location='../exhibits.md'"><span>🗂️</span> <strong>EXHIBITS INDEX</strong> — View all exhibits</button>
+    </div>
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside>
+    <div class="panel">
+      <div class="panel-title">Entity Constellation</div>
+      <div class="entity-item">
+        <div class="entity-icon">🏛️</div>
+        <div><div class="entity-name">Trust Core</div><div class="entity-role">Estate / trustee / UCC</div></div>
+      </div>
+      <div class="entity-item">
+        <div class="entity-icon">🔍</div>
+        <div><div class="entity-name">LexisNexis</div><div class="entity-role">Disclosure + reporting</div></div>
+      </div>
+      <div class="entity-item">
+        <div class="entity-icon">🏢</div>
+        <div><div class="entity-name">OpenCorporates</div><div class="entity-role">Corporate mislink</div></div>
+      </div>
+      <div class="entity-item">
+        <div class="entity-icon">🚔</div>
+        <div><div class="entity-name">Arizona DPS</div><div class="entity-role">Stop / force / arrest</div></div>
+      </div>
+      <div class="entity-item">
+        <div class="entity-icon">⚖️</div>
+        <div><div class="entity-name">Aztec / AALRR</div><div class="entity-role">Pressure and rescission</div></div>
+      </div>
+      <div class="entity-item">
+        <div class="entity-icon">📂</div>
+        <div><div class="entity-name">Bizfile / SOS</div><div class="entity-role">Upstream data feed</div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Document Vault</div>
+      <div class="stat-row"><span class="stat-label">Master Source</span><span class="stat-val">172k chars</span></div>
+      <div class="stat-row"><span class="stat-label">Constitutional Frame</span><span class="badge badge-green">READY</span></div>
+      <div class="stat-row"><span class="stat-label">FCRA Leverage</span><span class="badge badge-blue">CONSUMER FILE</span></div>
+      <div class="stat-row"><span class="stat-label">Exhibit_B Logic</span><span class="badge badge-gold">PROVER9</span></div>
+      <div style="margin-top:12px;">
+        <a href="../Exhibit_B_Logic_Proofs.md" style="display:block;" class="action-btn"><span>🔗</span> Exhibit B Logic Proofs</a>
+        <a href="../Notice_LexisNexis_Risk_Solutions.txt" class="action-btn"><span>🔗</span> LexisNexis Notice</a>
+        <a href="../Notice_Mohave_County.txt" class="action-btn"><span>🔗</span> Mohave County Notice</a>
+        <a href="../evidence_ingest.json" class="action-btn"><span>🔗</span> Evidence Ingest JSON</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Courtroom Optics</div>
+      <div class="stat-row"><span class="stat-label">Looks expensive</span><span class="badge badge-green">✓</span></div>
+      <div class="stat-row"><span class="stat-label">Looks competent</span><span class="badge badge-green">✓</span></div>
+      <div class="stat-row"><span class="stat-label">Looks dangerous</span><span class="badge badge-warn">ACTIVE</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Operator Notes</div>
+      <div style="font-size:0.78rem; color:var(--dim); line-height:1.6;">
+        <p style="margin-bottom:8px;">Use this as the <strong style="color:var(--text)">front door</strong>, then branch into exhibit packet, hearing mode, or letter generator.</p>
+        <p><strong style="color:var(--gold)">Best next upgrade:</strong> Add importable exhibits, drag-and-drop timeline editing, and PDF export.</p>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<footer class="ops-footer">
+  <span>ELEVATED MODE — Federal Suit 2026 | <a href="https://github.com/lawfullyillegal-droid/federal-suit-2026">github.com/lawfullyillegal-droid/federal-suit-2026</a></span>
+  <span>Integrated record architecture · 74 docs · 12 chronology nodes · 3-track</span>
+</footer>
+
+</body>
+</html>
