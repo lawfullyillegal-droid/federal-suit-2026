@@ -52,7 +52,6 @@ exclude:
   - POOF
   - Scripts
   - Tools
-  - command-center
   - downloads
   - enforceai
   - logic_proofs
