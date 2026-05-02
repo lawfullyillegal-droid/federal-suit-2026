@@ -1,3 +1,6 @@
-.cache/
-__pycache__/
-.python_history
+.config/
+.npm/
+.nvm/
+*.log
+.config/
+.npm/

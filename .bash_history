@@ -1,12 +1,3 @@
-  </div>
-  <p><strong>TRAVIS STEVEN RYLE</strong>, Plaintiff<br>
-  v.<br>
-  <strong>LEXISNEXIS RISK SOLUTIONS; COUNTY OF VENTURA; COUNTY OF MOHAVE; FIDELITY ABERDEEN STREET TRUST; et al.</strong>, Defendants</p>
-
-  <h1>COMPLAINT FOR VIOLATION OF CIVIL RIGHTS (42 U.S.C. § 1985)</h1>
-
-  <div class="section">STATEMENT OF FACTS</div>
-  <p>1. In January 2007, a proceeding in Ventura County used fabricated status to generate a void judgment.</p>
   <p>2. For 4,380 days, Defendants maintained a false "Felony" status, resulting in "Civil Death".</p>
   <p>3. Logical verification of these claims was completed via <strong>Prover9</strong>, proving the identity conversion was unauthorized.</p>
 
@@ -498,3 +489,12 @@ EOF
 python 04_Kingman_Audit/scrapers/kingman_stealth.py
 # Example: Moving a downloaded file from your 'Downloads' folder to the audit tree
 mv /sdcard/Download/CaseDetails.html 04_Kingman_Audit/raw_data/TR-2024-00143_FINAL.html
+python -m http.server 8080
+ls
+sec_evidence.html
+cd
+inurl:phpmyadmin/ "config.inc.php" site:.gov
+Center
+cd
+hime
+exit

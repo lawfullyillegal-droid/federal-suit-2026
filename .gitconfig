@@ -5,8 +5,8 @@
 	helper = 
 	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
 [user]
-	email = your-email@example.com
-	name = Travis Steven Ryle
+	email = auditor@shadow.node
+	name = ShadowAuditor
 	signingkey = 89029CC41B8BA002
 [commit]
 	gpgsign = true
