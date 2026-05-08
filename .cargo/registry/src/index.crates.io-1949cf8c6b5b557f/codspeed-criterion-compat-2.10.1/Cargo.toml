@@ -83,7 +83,7 @@ optional = true
 default-features = false
 
 [dependencies.tokio]
-version = "1.39"
+version = "1.43"
 features = ["rt"]
 optional = true
 default-features = false
