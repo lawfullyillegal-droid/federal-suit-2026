@@ -1,6 +1,1 @@
-.config/
-.npm/
-.nvm/
-*.log
-.config/
-.npm/
+audit_integrity.db
