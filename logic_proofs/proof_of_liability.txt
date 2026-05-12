@@ -1,0 +1,24 @@
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.01) seconds.
+% Length of proof is 14.
+% Level of proof is 6.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
+
+1 (all x (Trust_Record(x) -> Ministerial_Duty(x))) # label(non_clause).  [assumption].
+2 (all x (Ministerial_Duty(x) & Modified(x) & -Consent(x) -> Inconsistent_Act(x))) # label(non_clause).  [assumption].
+5 (exists x Inconsistent_Act(x)) # label(non_clause) # label(goal).  [goal].
+6 Trust_Record(Mohave_County_Entity).  [assumption].
+7 -Trust_Record(x) | Ministerial_Duty(x).  [clausify(1)].
+8 Ministerial_Duty(Mohave_County_Entity).  [resolve(6,a,7,a)].
+9 -Ministerial_Duty(x) | -Modified(x) | Consent(x) | Inconsistent_Act(x).  [clausify(2)].
+12 -Modified(Mohave_County_Entity) | Consent(Mohave_County_Entity) | Inconsistent_Act(Mohave_County_Entity).  [resolve(8,a,9,a)].
+13 Modified(Mohave_County_Entity).  [assumption].
+14 Consent(Mohave_County_Entity) | Inconsistent_Act(Mohave_County_Entity).  [resolve(12,a,13,a)].
+15 -Consent(Mohave_County_Entity).  [assumption].
+16 Inconsistent_Act(Mohave_County_Entity).  [resolve(14,a,15,a)].
+17 -Inconsistent_Act(x).  [deny(5)].
+18 $F.  [resolve(16,a,17,a)].
+
+============================== end of proof ==========================

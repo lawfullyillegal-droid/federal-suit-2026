@@ -1,18 +1,20 @@
-
 formulas(assumptions).
-  % If it's a Private Trust and there is a Security Agreement, it's a Corporate Debtor.
-  PrivateTrust(travis_ryle_trust) & SecurityAgreement(travis_ryle_trust) -> CorporateDebtor(travis_ryle_trust).
 
-  % Reported status + Corporate Debtor status equals Identity Conversion.
-  ReportedAs(lexisnexis, travis_ryle_trust, corporate_status) & CorporateDebtor(travis_ryle_trust) -> IdentityConversion(travis_ryle_trust).
+% -- Existing Axioms --
+all x (Trust_Record(x) -> Ministerial_Duty(x)).
+all x (Ministerial_Duty(x) & Modified(x) & -Consent(x) -> Inconsistent_Act(x)).
+all x (CorporateDebtor(x) -> PrivateTrust(x)).
+all x (ReportedAs(x, y, z) -> IdentityConversion(x)).
 
-  % Current Case Facts
-  PrivateTrust(travis_ryle_trust).
-  ReportedAs(lexisnexis, travis_ryle_trust, corporate_status).
-  -SecurityAgreement(travis_ryle_trust).
+% -- Targeted Facts --
+CorporateDebtor(Mohave_County_Entity).
+Modified(Mohave_County_Entity).
+-Consent(Mohave_County_Entity).
+Trust_Record(Mohave_County_Entity).
+
 end_of_list.
 
 formulas(goals).
-  % Goal: Prove that Identity Conversion is NOT valid if no agreement exists.
-  IdentityConversion(travis_ryle_trust).
+% We are trying to prove that an Inconsistent Act MUST exist.
+exists x (Inconsistent_Act(x)).
 end_of_list.

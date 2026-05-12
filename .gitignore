@@ -1,1 +1,26 @@
-audit_integrity.db
+# System/Cache Noise
+.cache/
+.npm/
+.python_history
+.bash_history
+.wget-hsts
+.google-cookie
+.config/
+*.log
+*.sqlite_history
+
+# Build/Tooling Noise
+LADR-2009-11A/
+provers.src/
+ladr/
+mace4.src/
+*.o
+*.a
+*.tar.gz*
+
+# Evidence Management
+!Evidence/
+!enforcement_actions/
+!audit_reports/
+!SECURITY_MANIFEST.md
+!ledger.txt

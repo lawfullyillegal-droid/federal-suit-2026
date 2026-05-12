@@ -1,0 +1,4 @@
+--- SYSTEM DISCREPANCY MANIFEST ---
+Furnisher: FRESNO COUNTY DA
+Status Conflict Detected: 180-day delinquency vs. Litigation Pending
+Post-Notice Violation Dates:
