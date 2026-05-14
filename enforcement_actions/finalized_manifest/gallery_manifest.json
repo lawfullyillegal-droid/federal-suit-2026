@@ -1,7 +1,7 @@
 {
-    "title": "VOID_MANIFEST_01",
+    "project_id": "LI-MOHAVE-2026-001",
     "brand": "Lawfully Illegal Public Accountability Enforcement Agency",
-    "integrity_hash": "ff7163b4",
+    "integrity_hash": "922bdc85",
     "breach_count": 1068,
     "ledger": [
         "B10009",
@@ -1073,5 +1073,6 @@
         "B9977",
         "B9993"
     ],
-    "fiscal_exposure": "$1,068,000.00"
+    "total_liability": "$1,068,000.00",
+    "timestamp_mst": "2026-05-13 17:23:52"
 }
