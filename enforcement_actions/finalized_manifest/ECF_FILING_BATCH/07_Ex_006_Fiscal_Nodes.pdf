@@ -1,0 +1,17 @@
+%PDF-1.4
+% LI-AUDIT-INTEGRITY: 07_Ex_006_Fiscal_Nodes.pdf.staged
+CASE NO: STAGED_FOR_FILING | DOCUMENT VOL: 07_Ex_006_Fiscal_Nodes
+------------------------------------------------------------
+# FISCAL TARGET ACQUISITION REPORT
+REF: AUDIT-LI-MOHAVE-2026-001 | LIABILITY: $1,068,000.00
+
+### Primary_Liability
+- **Identifier:** Mohave County Risk Management Trust (Fund 405)
+### Secondary_Reserve
+- **Identifier:** General Fund Contingency Reserve (GL-100-1910)
+### Administrative_Budget
+- **Identifier:** Clerk of Superior Court - Operations (Dept 1500)
+### Surety_Bond_Target
+- **Identifier:** Individual Public Official Bonds (Clerk/Sheriff)
+
+%%EOF
