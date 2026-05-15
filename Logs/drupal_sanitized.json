@@ -1,0 +1,11 @@
+{
+        var init = function () {
+          window.__AudioEyeSiteHash = "d9f8d492113151f587425cbbc8e8ca75";
+
+          var s = document.createElement("script");
+          s.src = "https://wsv3cdn.audioeye-services.com/aem.js?h=" + window.__AudioEyeSiteHash;
+          s.type = "text/javascript";
+          s.crossOrigin = "anonymous";
+          s.async = true;
+          document.body.appendChild(s);
+        }
