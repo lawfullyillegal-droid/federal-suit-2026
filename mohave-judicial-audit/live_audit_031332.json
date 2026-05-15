@@ -1,0 +1,4 @@
+{
+    "device_identity": "FAILED: HTTPConnectionPool(host='192.168.1.54', port=80): Max retries exceeded with url: /web/guest/en/device/deviceinfo.cgi (Caused by NewConnectionError(\"HTTPConnection(host='192.168.1.54', port=80): Failed to establish a new connection: [Errno 113] No route to host\"))",
+    "job_history": "FAILED: HTTPConnectionPool(host='192.168.1.54', port=80): Max retries exceeded with url: /web/guest/en/job/history.cgi (Caused by NewConnectionError(\"HTTPConnection(host='192.168.1.54', port=80): Failed to establish a new connection: [Errno 113] No route to host\"))"
+}
