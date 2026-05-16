@@ -1,27 +1,14 @@
-# System/Cache Noise
-.cache/
-.npm/
-.python_history
-.bash_history
-.wget-hsts
-.google-cookie
-.config/
-*.log
-*.sqlite_history
+# Ignore system runtime databases and locks
+*.db
+*.db-journal
+*.sqlite
 
-# Build/Tooling Noise
-LADR-2009-11A/
-provers.src/
-ladr/
-mace4.src/
-*.o
-*.a
-*.tar.gz*
+# Ignore raw html scraped dumps to keep the repo clean
+*.html
 
-# Evidence Management
-!Evidence/
-!enforcement_actions/
-!audit_reports/
-!SECURITY_MANIFEST.md
-!ledger.txt
-nano .gitignore
+# Ignore specific tool folders that are standalone utilities
+Storm-Breaker/
+Tools/
+sherlock/
+downloads/
+Evidence/dorks/
