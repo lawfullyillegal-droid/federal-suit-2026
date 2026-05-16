@@ -1,0 +1,18 @@
+{
+    "ledger_entries": [
+        {
+            "arraignment_timestamp": null,
+            "arrest_timestamp": "2026-05-02 08:00:00",
+            "bail_amount": 10000.0,
+            "case_id": "NODE-031332",
+            "charge_class": 3,
+            "counsel_appointed_timestamp": "2026-05-06 08:00:00",
+            "precinct_id": "Cerbat Precinct 5",
+            "scanner_metadata": "RICOH IM 4000",
+            "sixth_amendment_violation": 1,
+            "zip_code": "86413"
+        }
+    ],
+    "node_identity": "NODE-031332",
+    "verified_identity_anchor": "https://orcid.org/0009-0002-7324-9643"
+}
