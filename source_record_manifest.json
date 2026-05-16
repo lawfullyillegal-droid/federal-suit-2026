@@ -6,5 +6,7 @@
         "rule_4.1_timelines",
         "6th_amendment_counsel_lag",
         "bail_variance_disparities"
-    ]
+    ],
+    "pipeline_status": "process_intake_patched",
+    "legal_footprint": "ARS_12-821.01_staged"
 }
