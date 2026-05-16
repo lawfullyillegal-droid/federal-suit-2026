@@ -1,3 +1,4 @@
 inmate_name,case_id,arrest_timestamp,public_defender_assigned,hours_denied_counsel
-"John Doe",MOH-2026-00891,"2026-05-13 11:33:36",UNASSIGNED,72.9
-"John Doe",MOH-2026-00891,"2026-05-13 11:33:36",UNASSIGNED,73.0
+"John Doe",MOH-2026-00891,"2026-05-13 11:35:06",UNASSIGNED,72.9
+"John Doe",MOH-2026-00891,"2026-05-13 11:35:06",UNASSIGNED,73.0
+"John Doe",MOH-2026-00891,"2026-05-13 11:35:06",UNASSIGNED,73.0
