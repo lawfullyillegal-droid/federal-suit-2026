@@ -1,0 +1,32 @@
+name: Judicial Infrastructure Forensic Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze-infrastructure:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository Source
+      uses: actions/checkout@v4
+
+    - name: Set up Python Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install System Dependencies
+      run: |
+        # Fixed Termux execution block by dropping the explicit forbidden upgrade string
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Run Integrity Matrix & Verification Parsing
+      run: |
+        mkdir -p logs/cts_central
+        echo "2026-05-17T06:55:00Z CTS-SRV01 RICOH_MPF01: JobId=1042 User=vendor_admin Status=SPOOL_SHARED Docs=14 CaseRef=TR-2024-0143" > logs/cts_central/syslog.log
+        echo "CRITICAL: @remote connection initiated by unauthorized external IP" >> logs/cts_central/syslog.log
+        python src/audit_engine.py
