@@ -1,0 +1,4 @@
+event_id,timestamp_marker,originating_node,receiving_node,hardware_cell_anchor,intercepted_string
+TL-001,"2026-04-10 11:27:00","Bailey / 562 Node","Travis Device",TWR-GV-01,"Ima need the gun back or shoot it to Mike"
+TL-002,"2026-04-10 12:37:00","Travis Outbound Log","RT / Bailey / Connie","Network Route","LEGAL NOTICE: CRIMINAL INTIMIDATION A.R.S 13-2804"
+TL-003,"2026-05-18 02:00:00","Julie Brown Node","Travis Device",TWR-GV-01,"Travis is gonna end up really fucked up over this he better hope we don't catch him together"
