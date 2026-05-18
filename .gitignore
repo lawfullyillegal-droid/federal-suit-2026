@@ -1,14 +1,11 @@
-# Ignore system runtime databases and locks
+.cache/
+.cargo/
+.config/
+.npm/
+.ollama/
+*.log
+Logs/
+*.pyc
+__pycache__/
 *.db
-*.db-journal
-*.sqlite
-
-# Ignore raw html scraped dumps to keep the repo clean
-*.html
-
-# Ignore specific tool folders that are standalone utilities
-Storm-Breaker/
-Tools/
-sherlock/
-downloads/
-Evidence/dorks/
+*.csv
