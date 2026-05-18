@@ -1,0 +1,5 @@
+anchor_name,original_appointment_year,employee_name,generation_depth,department_node,total_years_influence
+"Arthur Smith Senior",1996,"Michael Smith",2,"Detention Admin",30
+"Arthur Smith Senior",1996,"David Smith",3,"Intake Processing",30
+"James Johnson Crowley",1998,"Robert Johnson",2,"Court Operations",28
+"James Johnson Crowley",1998,"William Johnson",3,"Intake Guard",28
