@@ -1,36 +1,70 @@
-# This is a basic workflow to help you get started with Actions
+name: Repository Validation Pipeline
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  validate:
+    name: Multi-Format Validation & Artifact Collection
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Validate YAML
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          pip install pyyaml -q
+          find . -name '*.yml' -o -name '*.yaml' | grep -v node_modules | while read f; do
+            python -c "import yaml; yaml.safe_load(open('$f'))" && echo "✓ $f" || (echo "✗ $f"; exit 1)
+          done
+
+      - name: Validate JSON
+        run: |
+          find . -name '*.json' -o -name '*.jsonl' | grep -v node_modules | while read f; do
+            python -m json.tool "$f" > /dev/null && echo "✓ $f" || (echo "✗ $f"; exit 1)
+          done
+
+      - name: Check Markdown
+        run: |
+          pip install mdl -q
+          find . -name '*.md' | while read f; do
+            if [ -f "$f" ]; then
+              wc -l "$f"
+            fi
+          done
+
+      - name: Collect Evidence Artifacts
+        if: always()
+        run: |
+          mkdir -p evidence-artifacts
+          echo "Validation Report: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > evidence-artifacts/validation-report.txt
+          echo "Git HEAD: $(git rev-parse HEAD)" >> evidence-artifacts/validation-report.txt
+          find . -type f \( -name '*.csv' -o -name '*.json' -o -name '*.yaml' \) | head -20 | while read f; do
+            echo "- $f" >> evidence-artifacts/validation-report.txt
+          done
+
+      - name: Upload Validation Artifacts
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: validation-${{ github.sha }}
+          path: evidence-artifacts/
+          retention-days: 90
+          if-no-files-found: warn
