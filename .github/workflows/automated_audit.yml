@@ -45,7 +45,7 @@ jobs:
           python src/audit_engine.py
 
       - name: Upload Forensic Logs as Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: forensic-logs-${{ github.sha }}
