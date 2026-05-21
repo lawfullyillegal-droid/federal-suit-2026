@@ -11,3 +11,4 @@
 | 40 | 49.8 | S8015CR202600340 | SCHEDULED PROCEEDING |
 | 65 | 39.2 | S8015CR202600465 | SCHEDULED PROCEEDING |
 | 71 | 37.7 | S8015CR202600371 | CONFERENCE |
+2026-05-21 10:45:34 - Case S8015CR202600518: Formal Motion to Dismiss served electronically to CAOCourt@mohave.gov (60.8 hour violation).
