@@ -1,0 +1,87 @@
+{
+  "run_meta": {
+    "timestamp": "2026-05-19 14:49:18",
+    "draft_query": "Review structural liability for the 12-year status misclassification under 42 U.S.C. \u00a7 1983 and the corresponding administrative bond claims under 42 U.S.C. \u00a7 1985.",
+    "approved_frameworks": [
+      "42 U.S.C. \u00a7 1983",
+      "42 U.S.C. \u00a7 1985",
+      "15 U.S.C. \u00a7 1681"
+    ]
+  },
+  "summary": {
+    "total_connections": 10,
+    "matched_count": 10
+  },
+  "verified_events": [
+    {
+      "statute": "15 U.S.C. \u00a7 1681e(b)",
+      "source": "aggregator_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "15 U.S.C. \u00a7 1681i",
+      "source": "aggregator_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "15 U.S.C. \u00a7 1681e(b)",
+      "source": "aggregator_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "15 U.S.C. \u00a7 1681",
+      "source": "aggregator_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1983",
+      "source": "bail_bond_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1985",
+      "source": "bail_bond_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1983",
+      "source": "bail_bond_violations.csv",
+      "weight": 0.7,
+      "match_type": "LITERAL_REGEX",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1983",
+      "source": "hardware_printer_audit.md",
+      "weight": 0.85,
+      "match_type": "CONTEXT_KEYWORD_MATCH ('ricoh')",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1983",
+      "source": "holding_status_gap.md",
+      "weight": 0.85,
+      "match_type": "CONTEXT_KEYWORD_MATCH ('docket')",
+      "aligned": true
+    },
+    {
+      "statute": "42 U.S.C. \u00a7 1983",
+      "source": "mohave_county_audit.md",
+      "weight": 0.85,
+      "match_type": "CONTEXT_KEYWORD_MATCH ('clerk')",
+      "aligned": true
+    }
+  ]
+}

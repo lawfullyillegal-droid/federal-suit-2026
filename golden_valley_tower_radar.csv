@@ -1,0 +1,3 @@
+tower_id,carrier_node,sector_azimuth,target_quadrant_coverage,nearest_cross_streets
+TWR-GV-01,"Verizon Wireless","120° / 240° Sectors","Golden Valley Ranchos Cluster","Shinarump Dr & Estella Ln"
+TWR-GV-02,"AT&T Mobility","60° / 180° / 300° Arrays","Highway 68 Corridor Overlap","Shinarump Dr & Chino Dr"

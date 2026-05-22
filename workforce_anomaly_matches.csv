@@ -1,0 +1,6 @@
+employee_name,department_node,statistical_anomaly_score,violations_on_shift
+"David Smith","Intake Processing",90.5,1
+"William Johnson","Intake Guard",75.0,1
+"Michael Smith","Detention Admin",15.5,0
+"Robert Johnson","Court Operations",0.0,0
+"Maria Rodriguez","Public Defender Node",0.0,0

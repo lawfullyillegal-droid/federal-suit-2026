@@ -1,0 +1,3 @@
+case_id,inmate_name,employee_name,family_anchor_id,assigned_bail_amount,agency_name,family_affiliation_node
+MOH-2026-00910,"Inmate Alpha","Marcus Cowins",ANC-003,75000.0,"Cowins Liberty Bail Bonds LLC","Charles Cowins"
+MOH-2026-00911,"Inmate Beta","David Smith",ANC-001,15000.0,"Tri-State Express Bonds",None

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>EXHIBIT_002_MINISTERIAL</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<p>============================== Prover9
+=============================== Prover9 (64) version 2009-11A, November
+2009. Process 31151 was started by u0_a494 on localhost, Wed May 13
+16:59:22 2026 The command was
+“/data/data/com.termux/files/usr/bin/prover9 -f ministerial_duty.p9”.
+============================== end of head
+===========================</p>
+<p>============================== INPUT
+=================================</p>
+<p>% Reading from file ministerial_duty.p9</p>
+<p>formulas(sos). (all x (StatuteMandated(x) -&gt; Ministerial(x))).
+(all x (Ministerial(x) -&gt; -Discretionary(x))). (all x
+(KnowledgeOfError(x) &amp; -ActionTaken(x) -&gt; Breach(x))). (all x
+(Breach(x) &amp; -Discretionary(x) -&gt; ImmunityWaived(x))).
+StatuteMandated(Accuracy). KnowledgeOfError(Accuracy).
+-ActionTaken(Accuracy). end_of_list.</p>
+<p>formulas(goals). ImmunityWaived(Accuracy). end_of_list.</p>
+<p>============================== end of input
+==========================</p>
+<p>============================== PROCESS NON-CLAUSAL FORMULAS
+==========</p>
+<p>% Formulas that are not ordinary clauses: 1 (all x
+(StatuteMandated(x) -&gt; Ministerial(x))) # label(non_clause).
+[assumption]. 2 (all x (Ministerial(x) -&gt; -Discretionary(x))) #
+label(non_clause). [assumption]. 3 (all x (KnowledgeOfError(x) &amp;
+-ActionTaken(x) -&gt; Breach(x))) # label(non_clause). [assumption]. 4
+(all x (Breach(x) &amp; -Discretionary(x) -&gt; ImmunityWaived(x))) #
+label(non_clause). [assumption]. 5 ImmunityWaived(Accuracy) #
+label(non_clause) # label(goal). [goal].</p>
+<p>============================== end of process non-clausal formulas
+===</p>
+<p>============================== PROCESS INITIAL CLAUSES
+===============</p>
+<p>% Clauses before input processing:</p>
+<p>formulas(usable). end_of_list.</p>
+<p>formulas(sos). -StatuteMandated(x) | Ministerial(x). [clausify(1)].
+-Ministerial(x) | -Discretionary(x). [clausify(2)]. -KnowledgeOfError(x)
+| ActionTaken(x) | Breach(x). [clausify(3)]. -Breach(x) |
+Discretionary(x) | ImmunityWaived(x). [clausify(4)].
+StatuteMandated(Accuracy). [assumption]. KnowledgeOfError(Accuracy).
+[assumption]. -ActionTaken(Accuracy). [assumption].
+-ImmunityWaived(Accuracy). [deny(5)]. end_of_list.</p>
+<p>formulas(demodulators). end_of_list.</p>
+<p>============================== PREDICATE ELIMINATION
+=================</p>
+<p>Eliminating StatuteMandated/1 6 StatuteMandated(Accuracy).
+[assumption]. 7 -StatuteMandated(x) | Ministerial(x). [clausify(1)].
+Derived: Ministerial(Accuracy). [resolve(6,a,7,a)].</p>
+<p>Eliminating Ministerial/1 8 Ministerial(Accuracy).
+[resolve(6,a,7,a)]. 9 -Ministerial(x) | -Discretionary(x).
+[clausify(2)]. Derived: -Discretionary(Accuracy).
+[resolve(8,a,9,a)].</p>
+<p>Eliminating KnowledgeOfError/1 10 KnowledgeOfError(Accuracy).
+[assumption]. 11 -KnowledgeOfError(x) | ActionTaken(x) | Breach(x).
+[clausify(3)]. Derived: ActionTaken(Accuracy) | Breach(Accuracy).
+[resolve(10,a,11,a)].</p>
+<p>Eliminating Breach/1 12 ActionTaken(Accuracy) | Breach(Accuracy).
+[resolve(10,a,11,a)]. 13 -Breach(x) | Discretionary(x) |
+ImmunityWaived(x). [clausify(4)]. Derived: ActionTaken(Accuracy) |
+Discretionary(Accuracy) | ImmunityWaived(Accuracy).
+[resolve(12,b,13,a)].</p>
+<p>Eliminating ActionTaken/1 14 ActionTaken(Accuracy) |
+Discretionary(Accuracy) | ImmunityWaived(Accuracy).
+[resolve(12,b,13,a)]. 15 -ActionTaken(Accuracy). [assumption]. Derived:
+Discretionary(Accuracy) | ImmunityWaived(Accuracy).
+[resolve(14,a,15,a)].</p>
+<p>Eliminating ImmunityWaived/1 16 Discretionary(Accuracy) |
+ImmunityWaived(Accuracy). [resolve(14,a,15,a)]. 17
+-ImmunityWaived(Accuracy). [deny(5)]. Derived: Discretionary(Accuracy).
+[resolve(16,b,17,a)].</p>
+<p>Eliminating Discretionary/1 18 Discretionary(Accuracy).
+[resolve(16,b,17,a)]. 19 -Discretionary(Accuracy). [resolve(8,a,9,a)].
+Derived: $F. [resolve(18,a,19,a)].</p>
+<p>============================== end predicate elimination
+=============</p>
+<p>Auto_denials: (no changes).</p>
+<p>Term ordering decisions: Predicate symbol precedence:
+predicate_order([ ]). Function symbol precedence: function_order([ ]).
+After inverse_order: (no changes). Unfolding symbols: (none).</p>
+<p>Auto_inference settings: % set(neg_binary_resolution). % (HNE
+depth_diff=0) % clear(ordered_res). % (HNE depth_diff=0) %
+set(ur_resolution). % (HNE depth_diff=0) % set(ur_resolution) -&gt;
+set(pos_ur_resolution). % set(ur_resolution) -&gt;
+set(neg_ur_resolution).</p>
+<p>Auto_process settings: (no changes).</p>
+<p>============================== PROOF
+=================================</p>
+<p>% Proof 1 at 0.01 (+ 0.00) seconds. % Length of proof is 20. % Level
+of proof is 6. % Maximum clause weight is 0.000. % Given clauses 0.</p>
+<p>1 (all x (StatuteMandated(x) -&gt; Ministerial(x))) #
+label(non_clause). [assumption]. 2 (all x (Ministerial(x) -&gt;
+-Discretionary(x))) # label(non_clause). [assumption]. 3 (all x
+(KnowledgeOfError(x) &amp; -ActionTaken(x) -&gt; Breach(x))) #
+label(non_clause). [assumption]. 4 (all x (Breach(x) &amp;
+-Discretionary(x) -&gt; ImmunityWaived(x))) # label(non_clause).
+[assumption]. 5 ImmunityWaived(Accuracy) # label(non_clause) #
+label(goal). [goal]. 6 StatuteMandated(Accuracy). [assumption]. 7
+-StatuteMandated(x) | Ministerial(x). [clausify(1)]. 8
+Ministerial(Accuracy). [resolve(6,a,7,a)]. 9 -Ministerial(x) |
+-Discretionary(x). [clausify(2)]. 10 KnowledgeOfError(Accuracy).
+[assumption]. 11 -KnowledgeOfError(x) | ActionTaken(x) | Breach(x).
+[clausify(3)]. 12 ActionTaken(Accuracy) | Breach(Accuracy).
+[resolve(10,a,11,a)]. 13 -Breach(x) | Discretionary(x) |
+ImmunityWaived(x). [clausify(4)]. 14 ActionTaken(Accuracy) |
+Discretionary(Accuracy) | ImmunityWaived(Accuracy).
+[resolve(12,b,13,a)]. 15 -ActionTaken(Accuracy). [assumption]. 16
+Discretionary(Accuracy) | ImmunityWaived(Accuracy).
+[resolve(14,a,15,a)]. 17 -ImmunityWaived(Accuracy). [deny(5)]. 18
+Discretionary(Accuracy). [resolve(16,b,17,a)]. 19
+-Discretionary(Accuracy). [resolve(8,a,9,a)]. 20 $F.
+[resolve(18,a,19,a)].</p>
+<p>============================== end of proof
+==========================</p>
+<p>============================== STATISTICS
+============================</p>
+<p>Given=0. Generated=1. Kept=0. proofs=1. Usable=0. Sos=0. Demods=0.
+Limbo=0, Disabled=15. Hints=0. Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0. Sos_limit_deleted=0.
+Sos_displaced=0. Sos_removed=0. New_demodulators=0 (0 lex),
+Back_demodulated=0. Back_unit_deleted=0. Demod_attempts=0.
+Demod_rewrites=0. Res_instance_prunes=0. Para_instance_prunes=0.
+Basic_paramod_prunes=0. Nonunit_fsub_feature_tests=0.
+Nonunit_bsub_feature_tests=0. Megabytes=0.03. User_CPU=0.01,
+System_CPU=0.00, Wall_clock=0.</p>
+<p>============================== end of statistics
+=====================</p>
+<p>============================== end of search
+=========================</p>
+<p>THEOREM PROVED</p>
+<p>Exiting with 1 proof.</p>
+<p>Process 31151 exit (max_proofs) Wed May 13 16:59:22 2026</p>
+</body>
+</html>

@@ -1,6 +1,11 @@
+.cache/
+.cargo/
 .config/
 .npm/
-.nvm/
+.ollama/
 *.log
-.config/
-.npm/
+Logs/
+*.pyc
+__pycache__/
+*.db
+*.csv

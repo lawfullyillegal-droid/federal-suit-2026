@@ -1,0 +1,5 @@
+Entity,IncidentDate,ViolationType,FactualBasis,Statute
+LexisNexis,2024-04-28,Inaccurate Record Reporting,Reported an active warrant during a Kingman traffic stop stemming from a void 2007 judgment,15 U.S.C. § 1681e(b)
+LexisNexis,2024-09-10,Clerical Date Error,Lists a conviction date of August 26 for an incident recorded as occurring later on September 10,15 U.S.C. § 1681i
+Equifax,2026-01-00,Extinguished Debt Reporting,Continues to report a $20000 Fresno County child support debt as active despite the debt being dropped/vacated,15 U.S.C. § 1681e(b)
+State of Arizona,2025-11-00,Data Reporting Consistency,Approved $820 in LIHEAP benefits for Unisource Energy account after accepting full citizenship verification documentation,15 U.S.C. § 1681

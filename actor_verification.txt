@@ -1,0 +1,2 @@
+[*] Auditing credentials for: David Wyatt
+[!] Connection failed: HTTPSConnectionPool(host='example-bar-association.org', port=443): Max retries exceeded with url: /search?q=David+Wyatt (Caused by NameResolutionError("HTTPSConnection(host='example-bar-association.org', port=443): Failed to resolve 'example-bar-association.org' ([Errno 7] No address associated with hostname)"))

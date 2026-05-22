@@ -1,0 +1,23 @@
+% Shadow Auditor Quo Warranto Logic v1.0
+% Challenge to Authority based on Systemic Ministerial Default
+
+formulas(sos).
+    % Axiom: Holding office is contingent on performing mandatory duties
+    all x (HoldsOffice(x) -> all d (Mandatory(d) & Duty(x,d) -> CanPerform(x,d))).
+    
+    % Axiom: A systemic failure to perform (1068 instances) equals an Incapacity
+    % Note: Removed the comma for formal logic consistency
+    all x (SystemicFailure(x, 1068) -> -CanPerform(x, MandatoryDuty)).
+    
+    % Axiom: If an officer cannot perform, they have forfeited the right to the office
+    all x (-CanPerform(x, MandatoryDuty) -> Forfeited(x)).
+    
+    % Case Data: Mohave Clerk 
+    SystemicFailure(Mohave_Clerk, 1068).
+    Mandatory(Rule_4_1).
+    Duty(Mohave_Clerk, Rule_4_1).
+end_of_list.
+
+formulas(goals).
+    Forfeited(Mohave_Clerk).
+end_of_list.

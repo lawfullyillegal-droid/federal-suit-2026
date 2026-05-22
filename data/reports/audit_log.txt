@@ -1,0 +1,89 @@
+======================================================================
+  AUDIT RUN: 2026-05-19 14:21:53
+  Draft Query: Evaluate liability for Equifax reporting an extinguished 0,000 child support debt and LexisNexis reporting a mismatching conviction timeline under 15 U.S.C. § 1681e(b).
+  Plaintiff:   Travis Ryle
+  Appearing:   Pro Se
+======================================================================
+
+[MATCHED EVENTS] -- 4 token(s) aligned with approved frameworks
+----------------------------------------------------------------------
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681e(b)
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681e(b)
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681i
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681
+
+[UNMATCHED EVENTS] -- 0 token(s) NOT in approved frameworks
+----------------------------------------------------------------------
+
+[UNUSED FRAMEWORKS] -- approved statutes with zero evidence citations
+----------------------------------------------------------------------
+  !!  | 42 U.S.C. § 1983
+  !!  | 42 U.S.C. § 1985
+
+======================================================================
+
+======================================================================
+  AUDIT RUN: 2026-05-19 14:28:51
+  Draft Query: Review structural liability for the 12-year status misclassification under 42 U.S.C. § 1983 and the corresponding administrative bond claims under 42 U.S.C. § 1985.
+  Plaintiff:   Travis Ryle
+  Appearing:   Pro Se
+======================================================================
+
+[MATCHED EVENTS] -- 7 token(s) aligned with approved frameworks
+----------------------------------------------------------------------
+  OK  | weight=0.70 | source=bail_bond_violations.csv | statute=42 U.S.C. § 1983
+  OK  | weight=0.70 | source=bail_bond_violations.csv | statute=42 U.S.C. § 1985
+  OK  | weight=0.70 | source=bail_bond_violations.csv | statute=42 U.S.C. § 1983
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681e(b)
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681i
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681e(b)
+  OK  | weight=0.70 | source=aggregator_violations.csv | statute=15 U.S.C. § 1681
+
+[UNMATCHED EVENTS] -- 0 token(s) NOT in approved frameworks
+----------------------------------------------------------------------
+
+[UNUSED FRAMEWORKS] -- approved statutes with zero evidence citations
+----------------------------------------------------------------------
+
+======================================================================
+
+======================================================================
+  AUDIT RUN: 2026-05-19 14:38:53
+  Draft Query: Review structural liability for the 12-year status misclassification under 42 U.S.C. § 1983 and the corresponding administrative bond claims under 42 U.S.C. § 1985.
+======================================================================
+
+[VERIFIED CONNECTIONS] -- Evidence linking back to your frameworks:
+----------------------------------------------------------------------
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681e(b) via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681i via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681e(b) via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1983 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1985 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1983 via LITERAL_REGEX
+  OK  | weight=0.85 | file=hardware_printer_audit.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('ricoh')
+  OK  | weight=0.85 | file=holding_status_gap.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('docket')
+  OK  | weight=0.85 | file=mohave_county_audit.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('clerk')
+
+======================================================================
+
+======================================================================
+  AUDIT RUN: 2026-05-19 14:49:18
+  Draft Query: Review structural liability for the 12-year status misclassification under 42 U.S.C. § 1983 and the corresponding administrative bond claims under 42 U.S.C. § 1985.
+======================================================================
+
+[VERIFIED CONNECTIONS] -- Evidence linking back to your frameworks:
+----------------------------------------------------------------------
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681e(b) via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681i via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681e(b) via LITERAL_REGEX
+  OK  | weight=0.70 | file=aggregator_violations.csv -> 15 U.S.C. § 1681 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1983 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1985 via LITERAL_REGEX
+  OK  | weight=0.70 | file=bail_bond_violations.csv -> 42 U.S.C. § 1983 via LITERAL_REGEX
+  OK  | weight=0.85 | file=hardware_printer_audit.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('ricoh')
+  OK  | weight=0.85 | file=holding_status_gap.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('docket')
+  OK  | weight=0.85 | file=mohave_county_audit.md -> 42 U.S.C. § 1983 via CONTEXT_KEYWORD_MATCH ('clerk')
+
+======================================================================
+
