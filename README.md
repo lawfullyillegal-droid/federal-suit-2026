@@ -10,3 +10,28 @@ This repository contains cryptographically hashed evidence of constitutional fai
 
 ### Manifest Integrity:
 All artifacts are hashed via SHA-256 and committed on 2026-05-02.
+
+## Scanner CLI: `trust_scan_bot.py`
+
+This repository includes a CLI wrapper `trust_scan_bot.py` that can run built-in and discovered scanners.
+
+Basic usage:
+
+```bash
+python trust_scan_bot.py --scanner deep
+python trust_scan_bot.py --scanner mohave --url https://example.com/target
+```
+
+Options:
+- `--scanner` / `-s`: Which scanner to run (use `--list` to enumerate discovered scanners).
+- `--url`: Optional URL to pass to scanners that accept it.
+- `--results` / `-r`: Optional path to write structured results (`.json` or `.csv`).
+- `--output` / `-o`: Optional path to write logger output.
+- `--log-level`: Logging verbosity (DEBUG/INFO/WARNING/ERROR).
+
+Example writing results to JSON:
+
+```bash
+python trust_scan_bot.py --scanner deep --results deep_results.json
+```
+
