@@ -1,0 +1,8 @@
+requests
+beautifulsoup4
+jsonschema
+flask
+pytest
+
+# optional
+python-dotenv

@@ -16,10 +16,11 @@ def deep_scan():
         links = content.find_all('a')
         
         print(f"Total links found in content area: {len(links)}")
-        
+
         # Look for any link containing '2026' or 'May'
         date_pattern = re.compile(r'2026|May|05-08|05-09', re.IGNORECASE)
-        
+
+        results = []
         for l in links:
             text = l.get_text().strip()
             href = l.get('href', '')
@@ -29,9 +30,13 @@ def deep_scan():
                 else:
                     full_url = f"https://www.mohave.gov{href}"
                 print(f"[TARGET] {text} | URL: {full_url}")
+                results.append({'text': text, 'url': full_url})
+
+        return results
                 
     except Exception as e:
         print(f"Deep Scan Failed: {e}")
+        return []
 
 if __name__ == "__main__":
     deep_scan()
