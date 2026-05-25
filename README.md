@@ -33,5 +33,28 @@ Example writing results to JSON:
 
 ```bash
 python trust_scan_bot.py --scanner deep --results deep_results.json
+
+## Dashboard Server
+
+Run a lightweight Flask server to execute scanners on-demand and serve dashboards.
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the server:
+
+```bash
+python dashboard_server.py
+```
+
+Endpoints:
+- `GET /list` — list discovered scanners
+- `GET|POST /run?scanner=<scanner>&url=<url>` — run a scanner (returns JSON including `dashboard` path)
+- `GET /view?path=<path>` — serve a generated dashboard HTML file
+
+Security: this server is minimal and unauthenticated — do not expose it publicly without adding auth or running behind a secure proxy.
 ```
 
