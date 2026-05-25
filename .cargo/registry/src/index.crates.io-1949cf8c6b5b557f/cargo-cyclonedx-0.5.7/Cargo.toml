@@ -99,7 +99,7 @@ features = ["package-type"]
 default-features = false
 
 [dependencies.regex]
-version = "1.9.3"
+version = "1.12.3"
 
 [dependencies.serde]
 version = "1.0.193"
