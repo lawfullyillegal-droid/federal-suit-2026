@@ -93,7 +93,7 @@ version = "1.0.216"
 features = ["derive"]
 
 [dependencies.tar]
-version = "0.4.45"
+version = "0.4.46"
 
 [dependencies.tracing-subscriber]
 version = "0.3.20"
