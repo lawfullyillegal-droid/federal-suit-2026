@@ -12,8 +12,8 @@ jobs:
       - name: Checkout Repository Layout
         uses: actions/checkout@v6
 
-      - name: Initialize Python Runtime Environment
-        uses: actions/setup-python@v5
+      - name: Set up Python Environment
+        uses: actions/setup-python@v6
         with:
           python-python-version: '3.11'
 
