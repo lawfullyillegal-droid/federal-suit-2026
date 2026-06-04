@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository Layout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Initialize Python Runtime Environment
         uses: actions/setup-python@v5
