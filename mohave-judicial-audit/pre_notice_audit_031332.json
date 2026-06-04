@@ -1,0 +1,9 @@
+{
+    "timestamp": "2026-05-14T14:17:12.153030",
+    "node_id": "031332",
+    "ip": "192.168.1.XX",
+    "results": {
+        "device_identity": "Connection Failed: HTTPConnectionPool(host='192.168.1.xx', port=80): Max retries exceeded with url: /web/guest/en/device/deviceinfo.cgi (Caused by NameResolutionError(\"HTTPConnection(host='192.168.1.xx', port=80): Failed to resolve '192.168.1.xx' ([Errno 7] No address associated with hostname)\"))",
+        "job_history": "Connection Failed: HTTPConnectionPool(host='192.168.1.xx', port=80): Max retries exceeded with url: /web/guest/en/job/history.cgi (Caused by NameResolutionError(\"HTTPConnection(host='192.168.1.xx', port=80): Failed to resolve '192.168.1.xx' ([Errno 7] No address associated with hostname)\"))"
+    }
+}

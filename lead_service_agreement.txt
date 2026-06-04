@@ -1,0 +1,18 @@
+==================================================
+LEAD GENERATION & DATA ACCESS SERVICE AGREEMENT
+==================================================
+PARTIES: BailStrike (Provider) and [CLIENT_FIRM] (Subscriber).
+
+1. SERVICES: Provider delivers proprietary pretrial data packets 
+   including: MCSO Booking IDs, ARS Charge Classifications, 
+   and OSINT-derived Payer/Family contact vectors.
+
+2. COMPLIANCE: This is a technical data subscription. Provider 
+   does NOT engage in the practice of law, does NOT provide 
+   legal advice, and does NOT share in legal fees. 
+
+3. FEES: 00.00 USD per "Premium Intake Packet."
+   Payment terms: Due upon electronic delivery of decrypted file.
+
+4. EXCLUSIVITY: Data packets are sold to one firm only per 24hr cycle.
+==================================================

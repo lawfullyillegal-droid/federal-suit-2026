@@ -1,0 +1,13 @@
+--- ADMINISTRATIVE INVOICE: NOTICE OF LIABILITY ---
+INVOICE_ID: LI-MOHAVE-B505-20260513
+DEBTOR: Mohave County Clerk of Superior Court / Clerk of Board
+CREDITOR: Lawfully Illegal Public Accountability Enforcement Agency
+SUBJECT_ID: B505
+
+VIOLATION: Breach of Mandatory Ministerial Duty (Rule 4.1 ROS)
+LIABILITY: $1,000.00
+STATUS: UNSETTLED / REGISTERED LEDGER
+
+This invoice is generated as a result of a verified void in the public docket.
+Failure of the ministerial duty to record the Return of Service constitutes
+a systemic violation of due process. This debt is now part of the 2026 Audit.

@@ -1,0 +1,4 @@
+anchor_name,employee_name,department_node,"COALESCE(f.secure_zone_access, 'External / Legal Node')"
+"Charles Cowins Senior","Charles Cowins","Judicial Bail Magistrate","External / Legal Node"
+"Charles Cowins Senior","Marcus Cowins","Intake Booking Sergeant","External / Legal Node"
+"Charles Cowins Senior","Rt Cowins","Facilities Logistics & Security Specialist","AdSeg Perimeter & Transport Lock"

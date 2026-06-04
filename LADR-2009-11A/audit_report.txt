@@ -1,7 +1,0 @@
---- LADR LOGIC AUDIT EXHIBIT ---
-Date: Sat Apr 18 11:29:00 MST 2026
-Target: Travis Ryle Private Bank Estate and Trust
-Prover9 Status: THEOREM PROVED
-Mace4 Status: Search completed to Domain 941 with 0 counter-models.
-CPU Time: 425.33s
-Total Ground Clauses: 883,604

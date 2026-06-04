@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mohave Audit Summary",
+  "type": "object",
+  "required": ["synced", "current_live_names"],
+  "properties": {
+    "synced": {"type": "integer", "minimum": 0},
+    "current_live_names": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "source": {"type": "string"}
+  },
+  "additionalProperties": false
+}

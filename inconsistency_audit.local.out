@@ -1,0 +1,142 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 12701 was started by codespace on codespaces-baa056,
+Fri May 22 19:23:19 2026
+The command was "./LADR-2009-11A/provers.src/prover9 -f logic_proofs/inconsistency_audit.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file logic_proofs/inconsistency_audit.in
+
+
+formulas(assumptions).
+-SecurityAgreement(travis_ryle_trust) -> -CorporateDebtor(travis_ryle_trust).
+ReportedAs(defendant,travis_ryle_trust,corporate_status) & -CorporateDebtor(travis_ryle_trust) -> Contradiction.
+-SecurityAgreement(travis_ryle_trust).
+ReportedAs(defendant,travis_ryle_trust,corporate_status).
+end_of_list.
+
+formulas(goals).
+Contradiction.
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -SecurityAgreement(travis_ryle_trust) -> -CorporateDebtor(travis_ryle_trust) # label(non_clause).  [assumption].
+2 ReportedAs(defendant,travis_ryle_trust,corporate_status) & -CorporateDebtor(travis_ryle_trust) -> Contradiction # label(non_clause).  [assumption].
+3 Contradiction # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+SecurityAgreement(travis_ryle_trust) | -CorporateDebtor(travis_ryle_trust).  [clausify(1)].
+-ReportedAs(defendant,travis_ryle_trust,corporate_status) | CorporateDebtor(travis_ryle_trust) | Contradiction.  [clausify(2)].
+-SecurityAgreement(travis_ryle_trust).  [assumption].
+ReportedAs(defendant,travis_ryle_trust,corporate_status).  [assumption].
+-Contradiction.  [deny(3)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating SecurityAgreement/1
+4 -SecurityAgreement(travis_ryle_trust).  [assumption].
+5 SecurityAgreement(travis_ryle_trust) | -CorporateDebtor(travis_ryle_trust).  [clausify(1)].
+Derived: -CorporateDebtor(travis_ryle_trust).  [resolve(4,a,5,a)].
+
+Eliminating ReportedAs/3
+6 ReportedAs(defendant,travis_ryle_trust,corporate_status).  [assumption].
+7 -ReportedAs(defendant,travis_ryle_trust,corporate_status) | CorporateDebtor(travis_ryle_trust) | Contradiction.  [clausify(2)].
+Derived: CorporateDebtor(travis_ryle_trust) | Contradiction.  [resolve(6,a,7,a)].
+
+Eliminating CorporateDebtor/1
+8 CorporateDebtor(travis_ryle_trust) | Contradiction.  [resolve(6,a,7,a)].
+9 -CorporateDebtor(travis_ryle_trust).  [resolve(4,a,5,a)].
+Derived: Contradiction.  [resolve(8,a,9,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ Contradiction ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+kept:      10 -Contradiction.  [deny(3)].
+kept:      11 Contradiction.  [resolve(8,a,9,a)].
+-------- Proof 1 -------- 
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 12.
+% Level of proof is 4.
+% Maximum clause weight is 1.000.
+% Given clauses 0.
+
+1 -SecurityAgreement(travis_ryle_trust) -> -CorporateDebtor(travis_ryle_trust) # label(non_clause).  [assumption].
+2 ReportedAs(defendant,travis_ryle_trust,corporate_status) & -CorporateDebtor(travis_ryle_trust) -> Contradiction # label(non_clause).  [assumption].
+3 Contradiction # label(non_clause) # label(goal).  [goal].
+4 -SecurityAgreement(travis_ryle_trust).  [assumption].
+5 SecurityAgreement(travis_ryle_trust) | -CorporateDebtor(travis_ryle_trust).  [clausify(1)].
+6 ReportedAs(defendant,travis_ryle_trust,corporate_status).  [assumption].
+7 -ReportedAs(defendant,travis_ryle_trust,corporate_status) | CorporateDebtor(travis_ryle_trust) | Contradiction.  [clausify(2)].
+8 CorporateDebtor(travis_ryle_trust) | Contradiction.  [resolve(6,a,7,a)].
+9 -CorporateDebtor(travis_ryle_trust).  [resolve(4,a,5,a)].
+10 -Contradiction.  [deny(3)].
+11 Contradiction.  [resolve(8,a,9,a)].
+12 $F.  [resolve(11,a,10,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=2. Kept=2. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=1, Disabled=8. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+------ process 12701 exit (max_proofs) ------
+
+Process 12701 exit (max_proofs) Fri May 22 19:23:19 2026

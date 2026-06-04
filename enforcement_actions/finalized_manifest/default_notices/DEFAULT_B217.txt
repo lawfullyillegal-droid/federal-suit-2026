@@ -1,0 +1,13 @@
+--- FINAL ADMINISTRATIVE NOTICE OF DEFAULT ---
+NOTICE_ID: LI-MOHAVE-B217-20260513
+DEBTOR: Mohave County Clerk of Superior Court
+CREDITOR: Lawfully Illegal Public Accountability Enforcement Agency
+OFFENSE: Breach of Non-Discretionary Ministerial Duty (A.R.C.P. Rule 4.1)
+
+SUMMARY:
+The subject record (ID: B217) exists within the MCSO custody database but 
+remains a 'void' in the public court docket. Under Prover9-verified logic 
+proof LI-LOGIC-001, your failure to file is a non-discretionary breach.
+
+LIABILITY: $1,000.00
+STATUS: PUBLIC LEDGER ENTRY
