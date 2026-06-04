@@ -1,10 +1,19 @@
+import os
 import sqlite3
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-def run_audit():
-    URL = "YOUR_TARGET_URL" # Ensure this is your actual source URL
+
+DEFAULT_URL = "https://www.mohave.gov/departments/sheriff/press-releases/"
+
+
+def run_audit(url=None):
+    """Run the audit against `url`.
+
+    Priority: explicit `url` argument -> `MOHAVE_URL` env var -> `DEFAULT_URL`.
+    """
+    URL = url or os.environ.get('MOHAVE_URL') or DEFAULT_URL
     try:
         r = requests.get(URL, timeout=15)
         soup = BeautifulSoup(r.text, 'html.parser')
@@ -46,9 +55,11 @@ def run_audit():
         conn.commit()
         conn.close()
         print(f"Audit Integrity: {found} records synced. State reconciliation complete.")
+        return {'synced': found, 'current_live_names': current_live_names}
 
     except Exception as e:
         print(f"Audit Failure: {e}")
+        return {'error': str(e)}
 
 if __name__ == "__main__":
     run_audit()

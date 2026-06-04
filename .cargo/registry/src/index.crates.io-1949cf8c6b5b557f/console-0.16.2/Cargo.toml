@@ -82,7 +82,7 @@ features = [
 default-features = false
 
 [dev-dependencies.regex]
-version = "1.4.2"
+version = "1.12.3"
 
 [target."cfg(windows)".dependencies.encode_unicode]
 version = "1"

@@ -1,0 +1,37 @@
+% =========================================================================
+% Formulas for Intent / Assumptions (The Rules of the Administrative Clock)
+% =========================================================================
+
+formulas(assumptions).
+
+    % 1. If an agency is served a lawful notice, the administrative clock begins.
+    ServedNotice(x) -> ClockRunning(x).
+
+    % 2. If the clock is running and the agency fails to respond within the mandatory window, they are in non-performance.
+    (ClockRunning(x) & -RespondedInWindow(x)) -> NonPerformance(x).
+
+    % 3. Non-performance by definition constitutes a formal procedural default.
+    NonPerformance(x) -> ProceduralDefault(x).
+
+    % 4. A formal procedural default results in a binding administrative admission of the claims.
+    ProceduralDefault(x) -> AdministrativeAdmission(x).
+
+    % 5. If an administrative admission is established, the agency loses all legal authority to later dispute the claim.
+    AdministrativeAdmission(x) -> -AuthorityToDispute(x).
+
+    % 6. Facts of the Current Audit Intersection Case:
+    ServedNotice(case230).
+    -RespondedInWindow(case230).
+
+end_of_list.
+
+% =========================================================================
+% Formulas for Goals / The Core Thesis to Prove
+% =========================================================================
+
+formulas(goals).
+
+    % Thesis: The agency strictly lacks the authority to dispute the claim on Case 230.
+    -AuthorityToDispute(case230).
+
+end_of_list.

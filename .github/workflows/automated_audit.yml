@@ -1,54 +1,26 @@
-name: Judicial Infrastructure Forensic Pipeline
+name: Automated Court Audit Pipeline
 
-# Runs only on push to main to avoid duplicate runs on PR merge.
-# Supports institutional transparency: every push is audited and logged.
 on:
-  push:
-    branches: [ main ]
+  schedule:
+    - cron: '0 13 * * *' # Fires automatically every day
   workflow_dispatch:
 
-# Force Node.js 24 for all Actions runners (fixes deprecation warning, required before June 2, 2026)
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
-  analyze-infrastructure:
-    name: Forensic Audit & Integrity Check
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-
     steps:
-      - name: Checkout Repository Source
-        uses: actions/checkout@v4
+      - name: Checkout Repository Layout
+        uses: actions/checkout@v6
 
       - name: Set up Python Environment
         uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-python-version: '3.11'
 
-      - name: Install Dependencies
+      - name: Inject Secure Core Dependencies
         run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "No requirements.txt found — skipping pip install."
-          fi
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 pypdf pandas
 
-      - name: Run Integrity Matrix & Verification Parsing
-        run: |
-          mkdir -p logs/cts_central
-          echo "2026-05-17T06:55:00Z CTS-SRV01 RICOH_MPF01: JobId=1042 User=vendor_admin Status=SPOOL_SHARED Docs=14 CaseRef=TR-2024-0143" > logs/cts_central/syslog.log
-          echo "CRITICAL: @remote connection initiated by unauthorized external IP" >> logs/cts_central/syslog.log
-          python src/audit_engine.py
-
-      - name: Upload Forensic Logs as Artifact
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: forensic-logs-${{ github.sha }}
-          path: logs/
-          retention-days: 90
-          if-no-files-found: warn
+      - name: Execute Intercept Pipeline Engine
+        run: python alpha_sync_final.py
