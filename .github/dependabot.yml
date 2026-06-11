@@ -1,5 +1,5 @@
 # Dependabot configuration for federal-suit-2026
-# Keeps GitHub Actions and Cargo dependencies up-to-date
+# Keeps GitHub Actions dependencies up-to-date
 # for institutional transparency and CI integrity
 version: 2
 updates:
@@ -14,18 +14,3 @@ updates:
       - "ci"
     commit-message:
       prefix: "ci(deps)"
-
-  - package-ecosystem: "cargo"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-    labels:
-      - "dependencies"
-      - "rust"
-    commit-message:
-      prefix: "chore(deps)"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
