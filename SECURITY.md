@@ -9,13 +9,13 @@ This document defines the integrity standards, handling procedures, and security
 ## Evidence Integrity Controls
 
 ### SHA-256 Hashing
-Every document batch committed to this repository is accompanied by a SHA-256 hash recorded in `MANIFEST.md`. This hash serves as a cryptographic seal proving the file has not been altered since its creation.
+Every document batch committed to this repository is accompanied by SHA-256 records indexed in the root `MANIFEST.md`. This serves as the canonical integrity entrypoint and cryptographic seal.
 
 To verify any file independently:
 ```bash
 sha256sum <filename>
 ```
-Compare the output against the hash listed in `MANIFEST.md`.
+Compare the output against the expected value listed in `MANIFEST.md` or in the referenced `.sha256` manifest files.
 
 ### Commit Signing
 Where available, commits are signed with GPG. Signed commits carry a `Verified` badge in GitHub's interface, cryptographically proving each change originated from the repository custodian.

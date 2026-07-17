@@ -13,6 +13,7 @@ This repository contains cryptographically hashed evidence of constitutional fai
 ### Manifest Integrity
 
 All artifacts are hashed via SHA-256 and committed on 2026-05-02.
+Use the canonical root manifest at `MANIFEST.md` as the single verification entrypoint.
 
 ## Scanner CLI: `trust_scan_bot.py`
 
